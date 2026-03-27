@@ -24,8 +24,10 @@ export interface MapPath {
 	expectPassTime: number;  // s
 	distance: number;  // m
 	type: MapPathType;
+	popularity?: number;  // 0-1
 	penalty?: number;
-	accessible?: boolean;
 	description?: string;
 	isOpenAir?: boolean;
+	isAccessible?: boolean;
+	isBarrierFree?: boolean;
 }
