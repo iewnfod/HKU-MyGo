@@ -3,7 +3,7 @@ export interface MapNode {
 	name: string;  // 名称
 	level: string;  // 楼层
 	description?: string;
-	alias?: string;
+	aliases: string[];
 	accessiblePaths: string[];
 }
 
