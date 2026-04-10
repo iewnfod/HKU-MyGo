@@ -1,6 +1,10 @@
+import FloatingSearchBar from "./components/FloatingSearchBar.tsx";
+
 function App() {
 	return (
-		<div>1</div>
+		<div className="w-screen h-screen overflow-hidden p-4">
+			<FloatingSearchBar/>
+		</div>
 	);
 }
 
