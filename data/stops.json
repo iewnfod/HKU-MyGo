@@ -193,7 +193,182 @@
         "西閘"
       ],
       "node_description": "Upper-campus gate node on Bonham Road, commonly used for access to Meng Wah and the west side of Main Campus."
+    },
+    {
+      "uid": "001",
+      "name": "Main Library Building Ground Floor",
+      "level": "G",
+      "description": "",
+      "aliases": ["Library", "Main Library"],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "002",
+      "name": "Main Library Building First Floor",
+      "level": "1",
+      "description": "",
+      "aliases": ["Library 1F", "Main Library 1F"],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "003",
+      "name": "Main Library Building Second Floor",
+      "level": "2",
+      "description": "",
+      "aliases": ["Library 2F", "Main Library 2F"],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "004",
+      "name": "Main Library Building Third Floor",
+      "level": "3",
+      "description": "",
+      "aliases": ["Library 3F", "Main Library 3F"],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "005",
+      "name": "Main Building Ground Floor",
+      "level": "G",
+      "description": "",
+      "aliases": [""],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "006",
+      "name": "Main Building Second Floor",
+      "level": "1",
+      "description": "",
+      "aliases": ["Main Building 1F","Main Building"],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "008",
+      "name": "Hui Oi Chow Science Building",
+      "level": "G",
+      "description": "",
+      "aliases": [""],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "009",
+      "name": "Graduate House",
+      "level": "G",
+      "description": "",
+      "aliases": [""],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "010",
+      "name": "Run Run Shaw Building Ground Floor",
+      "level": "G",
+      "description": "",
+      "aliases": ["Run Run Shaw"],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "011",
+      "name": "Run Run Shaw Building First Floor",
+      "level": "1",
+      "description": "",
+      "aliases": ["Run Run Shaw 1F"],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "012",
+      "name": "Knowles Building",
+      "level": "G",
+      "description": "",
+      "aliases": ["KB"],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "013",
+      "name": "K.K. Leung Building Ground Floor",
+      "level": "G",
+      "description": "",
+      "aliases": ["KK"],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "014",
+      "name": "K.K. Leung Building Lower Ground Floor",
+      "level": "G",
+      "description": "",
+      "aliases": ["KKLG"],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "015",
+      "name": "MWT1",
+      "level": "4",
+      "description": "",
+      "aliases": [""],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "016",
+      "name": "MWT2",
+      "level": "4",
+      "description": "",
+      "aliases": [""],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "017",
+      "name": "MWT3",
+      "level": "5",
+      "description": "",
+      "aliases": [""],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "018",
+      "name": "MWT4",
+      "level": "5",
+      "description": "",
+      "aliases": [""],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "019",
+      "name": "Chong Yuet Ming Amenities Centre Third Floor",
+      "level": "3",
+      "description": "",
+      "aliases": ["CHong Yuet Ming"],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "020",
+      "name": "Chong Yuet Ming Amenities Centre Forth Floor",
+      "level": "4",
+      "description": "",
+      "aliases": [""],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "021",
+      "name": "Chong Yuet Ming Amenities Centre Fifth Floor",
+      "level": "5",
+      "description": "",
+      "aliases": [""],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "022",
+      "name": "Chong Yuet Ming Physics Building Lower Ground Floor",
+      "level": "LG",
+      "description": "",
+      "aliases": ["CYPP"],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "023",
+      "name": "Chong Yuet Ming Physics Ground Floor",
+      "level": "G",
+      "description": "",
+      "aliases": [""],
+      "accessiblePaths": ["path_1", "path_2"]
     }
   ]
-  
 }
