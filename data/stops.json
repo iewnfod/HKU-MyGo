@@ -1,199 +1,5 @@
 {
-  "metadata": {
-    "campus": "The University of Hong Kong – Main Campus / Centennial Campus edge",
-    "normalization_scope": "MVP-ready simplified pedestrian graph",
-    "notes": [
-      "Expanded beyond the original 10-stop / 25-segment target into a fuller 15-stop / 40-directed-segment graph.",
-      "Official building names and map references were normalized against HKU's April 2025 Main Campus map.",
-      "Accessible flags were biased toward official lift/ramp routes where HKU explicitly documents them.",
-      "Base durations, peak-hour penalties, and popularity remain normalized planning estimates rather than official HKU timing data."
-    ]
-  },
-  "stops": [
-    {
-      "stop_id": "STOP01",
-      "name_location": "HKU MTR Station Exit A2",
-      "official_map_ref": "off-map access node",
-      "aliases": [
-        "HKU MTR A2",
-        "HKU Station",
-        "MTR Exit A2",
-        "Exit A2",
-        "地鐵站A2"
-      ],
-      "node_description": "Primary MTR arrival node for the Main Campus, reached via the lift-only Exit A2 connection on Pokfulam Road."
-    },
-    {
-      "stop_id": "STOP02",
-      "name_location": "Haking Wong Building",
-      "official_map_ref": "32",
-      "aliases": [
-        "Haking Wong",
-        "HWB",
-        "Haking Wong Building",
-        "黃克兢樓"
-      ],
-      "node_description": "Base-of-campus engineering and computer-science hub directly linked to the University Street covered walkway and the MTR side."
-    },
-    {
-      "stop_id": "STOP03",
-      "name_location": "Chow Yei Ching Building",
-      "official_map_ref": "34",
-      "aliases": [
-        "Chow Yei Ching",
-        "CYC",
-        "CYC Building",
-        "周亦卿樓"
-      ],
-      "node_description": "Centennial-side podium building on the Pokfulam Road edge, commonly used as a transition node between Haking Wong and the Centennial cluster."
-    },
-    {
-      "stop_id": "STOP04",
-      "name_location": "Cheng Yu Tung Tower",
-      "official_map_ref": "36",
-      "aliases": [
-        "CYT",
-        "Cheng Yu Tung",
-        "CYT Tower",
-        "Centennial Campus",
-        "鄭裕彤樓"
-      ],
-      "node_description": "Major Centennial Campus tower node connected to the podium system and close to the Jockey Club Tower vertical circulation core."
-    },
-    {
-      "stop_id": "STOP05",
-      "name_location": "Composite Building",
-      "official_map_ref": "33",
-      "aliases": [
-        "Composite",
-        "CB",
-        "Composite Building",
-        "綜合教學樓"
-      ],
-      "node_description": "Upper University Street node between Haking Wong and the Centennial learning-spaces cluster."
-    },
-    {
-      "stop_id": "STOP06",
-      "name_location": "Main Building",
-      "official_map_ref": "27",
-      "aliases": [
-        "Main Building",
-        "MB",
-        "Loke Yew Hall Building",
-        "本部大樓"
-      ],
-      "node_description": "Historic academic core of HKU and a key central-campus destination near Sun Yat-sen Place."
-    },
-    {
-      "stop_id": "STOP07",
-      "name_location": "Main Library",
-      "official_map_ref": "26",
-      "aliases": [
-        "Main Library",
-        "Library",
-        "HKU Library",
-        "ML",
-        "大學圖書館"
-      ],
-      "node_description": "Central academic library node; the west-side 2/F entrance connects directly to University Street."
-    },
-    {
-      "stop_id": "STOP08",
-      "name_location": "Run Run Shaw Building",
-      "official_map_ref": "18",
-      "aliases": [
-        "Run Run Shaw",
-        "RRS",
-        "RRS Building",
-        "邵仁夫樓"
-      ],
-      "node_description": "Upper-slope teaching building on the route between the library zone and the science buildings."
-    },
-    {
-      "stop_id": "STOP09",
-      "name_location": "Knowles Building",
-      "official_map_ref": "21",
-      "aliases": [
-        "Knowles",
-        "KB",
-        "Knowles Building",
-        "Kwan Fong LT",
-        "紐魯詩樓"
-      ],
-      "node_description": "Upper academic-zone node near the library and the west-side classroom cluster."
-    },
-    {
-      "stop_id": "STOP10",
-      "name_location": "Chi Wah Learning Commons",
-      "official_map_ref": "38",
-      "aliases": [
-        "Chi Wah",
-        "CWLC",
-        "Learning Commons",
-        "至華學習共享空間"
-      ],
-      "node_description": "Major Centennial learning hub connected to nearby lecture facilities and the upper covered walkway system."
-    },
-    {
-      "stop_id": "STOP11",
-      "name_location": "Lee Shau Kee Lecture Centre",
-      "official_map_ref": "39",
-      "aliases": [
-        "Lee Shau Kee",
-        "LSKLC",
-        "Grand Hall",
-        "李兆基講堂"
-      ],
-      "node_description": "Large lecture-venue node beside Chi Wah Learning Commons and below the Centennial upper podium level."
-    },
-    {
-      "stop_id": "STOP12",
-      "name_location": "Meng Wah Complex",
-      "official_map_ref": "5",
-      "aliases": [
-        "Meng Wah",
-        "MW",
-        "Meng Wah Complex",
-        "明華綜合教學樓"
-      ],
-      "node_description": "Upper-west teaching complex used as a major route anchor toward Bonham Road and the CYM side."
-    },
-    {
-      "stop_id": "STOP13",
-      "name_location": "K.K. Leung Building",
-      "official_map_ref": "15",
-      "aliases": [
-        "K.K. Leung",
-        "KKL",
-        "KK Leung",
-        "梁銶琚樓"
-      ],
-      "node_description": "Upper-central academic node connecting the library side, Knowles side, and the CYM/Meng Wah side."
-    },
-    {
-      "stop_id": "STOP14",
-      "name_location": "Hui Oi Chow Science Building",
-      "official_map_ref": "17",
-      "aliases": [
-        "Hui Oi Chow",
-        "HOC",
-        "HOC Building",
-        "許愛周科學館"
-      ],
-      "node_description": "Science-cluster node on the upper slope, east of Run Run Shaw Building and uphill from the library side."
-    },
-    {
-      "stop_id": "STOP15",
-      "name_location": "West Gate (Bonham Road Entrance)",
-      "official_map_ref": "West Gate",
-      "aliases": [
-        "West Gate",
-        "Bonham Road Gate",
-        "WG",
-        "西閘"
-      ],
-      "node_description": "Upper-campus gate node on Bonham Road, commonly used for access to Meng Wah and the west side of Main Campus."
-    },
+  "nodes":[
     {
       "uid": "001",
       "name": "Main Library Building Ground Floor",
@@ -300,38 +106,22 @@
     },
     {
       "uid": "015",
-      "name": "MWT1",
-      "level": "4",
+      "name": "Meng Wah Complex Lower Ground Floor",
+      "level": "LG",
       "description": "",
-      "aliases": [""],
+      "aliases": ["MWT1"],
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
       "uid": "016",
-      "name": "MWT2",
-      "level": "4",
+      "name": "Meng Wah Complex Ground Floor",
+      "level": "G",
       "description": "",
       "aliases": [""],
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
       "uid": "017",
-      "name": "MWT3",
-      "level": "5",
-      "description": "",
-      "aliases": [""],
-      "accessiblePaths": ["path_1", "path_2"]
-    },
-    {
-      "uid": "018",
-      "name": "MWT4",
-      "level": "5",
-      "description": "",
-      "aliases": [""],
-      "accessiblePaths": ["path_1", "path_2"]
-    },
-    {
-      "uid": "019",
       "name": "Chong Yuet Ming Amenities Centre Third Floor",
       "level": "3",
       "description": "",
@@ -339,7 +129,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "020",
+      "uid": "018",
       "name": "Chong Yuet Ming Amenities Centre Forth Floor",
       "level": "4",
       "description": "",
@@ -347,7 +137,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "021",
+      "uid": "019",
       "name": "Chong Yuet Ming Amenities Centre Fifth Floor",
       "level": "5",
       "description": "",
@@ -355,7 +145,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "022",
+      "uid": "020",
       "name": "Chong Yuet Ming Physics Building Lower Ground Floor",
       "level": "LG",
       "description": "",
@@ -363,8 +153,16 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "023",
+      "uid": "021",
       "name": "Chong Yuet Ming Physics Ground Floor",
+      "level": "G",
+      "description": "",
+      "aliases": [""],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "022",
+      "name": "University Street Run Run Shaw Point",
       "level": "G",
       "description": "",
       "aliases": [""],
