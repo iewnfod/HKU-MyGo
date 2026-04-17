@@ -2,17 +2,59 @@
   "segments": [
     {
       "uid": "001",
-      "fromNodeUid": "node_1",
-      "toNodeUid": "node_2",
-      "name": "Main Corridor",
-      "expectPassTime": 120,
-      "distance": 85.5,
+      "fromNodeUid": "006",
+      "toNodeUid": "018",
+      "name": "Mountainside Road",
+      "expectPassTime": 180,
+      "distance": 225,
       "type": "road",
-      "popularity": 0.85,
-      "penalty": 0.0,
-      "description": "Wide hallway with shops",
-      "isOpenAir": false,
-      "isAccessible": true
+      "popularity": 1,
+      "penalty": 0,
+      "description": "From Graduate House to SU",
+      "isOpenAir": true,
+      "isAccessible": false
+    },
+    {
+      "uid": "002",
+      "fromNodeUid": "018",
+      "toNodeUid": "006",
+      "name": "Mountainside Road",
+      "expectPassTime": 180,
+      "distance": 225,
+      "type": "road",
+      "popularity": 1,
+      "penalty": 0,
+      "description": "From SU to Graduate House",
+      "isOpenAir": true,
+      "isAccessible": false
+    },
+    {
+      "uid": "003",
+      "fromNodeUid": "018",
+      "toNodeUid": "019",
+      "name": "SU stairs",
+      "expectPassTime": 15,
+      "distance": 18,
+      "type": "stair",
+      "popularity": 50,
+      "penalty": 5,
+      "description": "From SU to Haking Wong Building Elevator Platform",
+      "isOpenAir": true,
+      "isAccessible": false
+    },
+    {
+      "uid": "004",
+      "fromNodeUid": "019",
+      "toNodeUid": "018",
+      "name": "SU stairs",
+      "expectPassTime": 9,
+      "distance": 18,
+      "type": "stair",
+      "popularity": 50,
+      "penalty": 5,
+      "description": "From Haking Wong Building Elevator Platform to SU",
+      "isOpenAir": true,
+      "isAccessible": false
     }
   ]
 }

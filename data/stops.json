@@ -143,6 +143,14 @@
       "description": "",
       "aliases": ["SU"],
       "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "019",
+      "name": "Haking Wong Building Elevator Platform",
+      "level": "G",
+      "description": "",
+      "aliases": [""],
+      "accessiblePaths": ["path_1", "path_2"]
     }
   ]
 }
