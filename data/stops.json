@@ -135,6 +135,14 @@
       "description": "",
       "aliases": [""],
       "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "018",
+      "name": "SU Restaurant",
+      "level": "LG",
+      "description": "",
+      "aliases": ["SU"],
+      "accessiblePaths": ["path_1", "path_2"]
     }
   ]
 }
