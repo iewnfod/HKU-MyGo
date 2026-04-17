@@ -1,6 +1,19 @@
 {
   "segments": [
-    
+    {
+      "uid": "001",
+      "fromNodeUid": "node_1",
+      "toNodeUid": "node_2",
+      "name": "Main Corridor",
+      "expectPassTime": 120,
+      "distance": 85.5,
+      "type": "road",
+      "popularity": 0.85,
+      "penalty": 0.0,
+      "description": "Wide hallway with shops",
+      "isOpenAir": false,
+      "isAccessible": true
+    }
   ]
 }
 
