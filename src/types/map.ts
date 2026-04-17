@@ -29,5 +29,4 @@ export interface MapPath {
 	description?: string;
 	isOpenAir?: boolean;
 	isAccessible?: boolean;
-	isBarrierFree?: boolean;
 }
