@@ -26,30 +26,14 @@
     },
     {
       "uid": "004",
-      "name": "Main Library Building Third Floor",
-      "level": "3",
+      "name": "Main Building",
+      "level": "1",
       "description": "",
-      "aliases": ["Library 3F", "Main Library 3F"],
+      "aliases": ["MB"],
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
       "uid": "005",
-      "name": "Main Building Ground Floor",
-      "level": "G",
-      "description": "",
-      "aliases": [""],
-      "accessiblePaths": ["path_1", "path_2"]
-    },
-    {
-      "uid": "006",
-      "name": "Main Building Second Floor",
-      "level": "1",
-      "description": "",
-      "aliases": ["Main Building 1F","Main Building"],
-      "accessiblePaths": ["path_1", "path_2"]
-    },
-    {
-      "uid": "008",
       "name": "Hui Oi Chow Science Building",
       "level": "G",
       "description": "",
@@ -57,7 +41,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "009",
+      "uid": "006",
       "name": "Graduate House",
       "level": "G",
       "description": "",
@@ -65,7 +49,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "010",
+      "uid": "007",
       "name": "Run Run Shaw Building Ground Floor",
       "level": "G",
       "description": "",
@@ -73,7 +57,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "011",
+      "uid": "008",
       "name": "Run Run Shaw Building First Floor",
       "level": "1",
       "description": "",
@@ -81,7 +65,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "012",
+      "uid": "09",
       "name": "Knowles Building",
       "level": "G",
       "description": "",
@@ -89,7 +73,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "013",
+      "uid": "010",
       "name": "K.K. Leung Building Ground Floor",
       "level": "G",
       "description": "",
@@ -97,7 +81,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "014",
+      "uid": "011",
       "name": "K.K. Leung Building Lower Ground Floor",
       "level": "G",
       "description": "",
@@ -105,7 +89,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "015",
+      "uid": "012",
       "name": "Meng Wah Complex Lower Ground Floor",
       "level": "LG",
       "description": "",
@@ -113,7 +97,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "016",
+      "uid": "013",
       "name": "Meng Wah Complex Ground Floor",
       "level": "G",
       "description": "",
@@ -121,7 +105,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "017",
+      "uid": "014",
       "name": "Chong Yuet Ming Amenities Centre Third Floor",
       "level": "3",
       "description": "",
@@ -129,7 +113,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "018",
+      "uid": "015",
       "name": "Chong Yuet Ming Amenities Centre Forth Floor",
       "level": "4",
       "description": "",
@@ -137,15 +121,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "019",
-      "name": "Chong Yuet Ming Amenities Centre Fifth Floor",
-      "level": "5",
-      "description": "",
-      "aliases": [""],
-      "accessiblePaths": ["path_1", "path_2"]
-    },
-    {
-      "uid": "020",
+      "uid": "016",
       "name": "Chong Yuet Ming Physics Building Lower Ground Floor",
       "level": "LG",
       "description": "",
@@ -153,15 +129,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "021",
-      "name": "Chong Yuet Ming Physics Ground Floor",
-      "level": "G",
-      "description": "",
-      "aliases": [""],
-      "accessiblePaths": ["path_1", "path_2"]
-    },
-    {
-      "uid": "022",
+      "uid": "017",
       "name": "University Street Run Run Shaw Point",
       "level": "G",
       "description": "",
