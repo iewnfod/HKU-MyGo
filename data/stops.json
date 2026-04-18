@@ -65,7 +65,7 @@
       "accessiblePaths": ["path_1", "path_2"]
     },
     {
-      "uid": "09",
+      "uid": "009",
       "name": "Knowles Building",
       "level": "G",
       "description": "",
@@ -147,6 +147,14 @@
     {
       "uid": "019",
       "name": "Haking Wong Building Elevator Platform",
+      "level": "G",
+      "description": "",
+      "aliases": [""],
+      "accessiblePaths": ["path_1", "path_2"]
+    },
+    {
+      "uid": "020",
+      "name": "Main Library Open Space",
       "level": "G",
       "description": "",
       "aliases": [""],
