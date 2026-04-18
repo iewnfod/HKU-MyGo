@@ -447,6 +447,34 @@
       "description": "Main Building to Main Library Ground Floor",
       "isOpenAir": true,
       "isAccessible": false
+    },
+    {
+      "uid": "033",
+      "fromNodeUid": "017",
+      "toNodeUid": "001",
+      "name": "Knowles Building Exterior Stairs",
+      "expectPassTime": 60,
+      "distance":75,
+      "type": "stair",
+      "popularity": 30,
+      "penalty": 0,
+      "description": "University Street Run Run Shaw Point to Main Library Ground Floor",
+      "isOpenAir": true,
+      "isAccessible": false
+    },
+    {
+      "uid": "034",
+      "fromNodeUid": "001",
+      "toNodeUid": "017",
+      "name": "Knowles Building Exterior Stairs",
+      "expectPassTime": 75,
+      "distance":75,
+      "type": "stair",
+      "popularity": 30,
+      "penalty": 0,
+      "description": "Main Library Ground Floor to University Street Run Run Shaw Point",
+      "isOpenAir": true,
+      "isAccessible": false
     }
   ]
 }
