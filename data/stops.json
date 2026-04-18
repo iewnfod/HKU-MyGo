@@ -6,7 +6,7 @@
       "level": "G",
       "description": "",
       "aliases": ["Library", "Main Library"],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["025","026","027","028","029","030","031","032","043","044"]
     },
     {
       "uid": "002",
@@ -14,7 +14,7 @@
       "level": "1",
       "description": "",
       "aliases": ["Library 1F", "Main Library 1F"],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["021","022","023","024","025","026","027","028"]
     },
     {
       "uid": "003",
@@ -22,7 +22,7 @@
       "level": "2",
       "description": "",
       "aliases": ["Library 2F", "Main Library 2F"],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["017", "018","019","020","021","022","023","024","029","030"]
     },
     {
       "uid": "004",
@@ -30,7 +30,7 @@
       "level": "1",
       "description": "",
       "aliases": ["MB"],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["031","032","045","046"]
     },
     {
       "uid": "005",
@@ -38,7 +38,7 @@
       "level": "G",
       "description": "",
       "aliases": [""],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["009","010"]
     },
     {
       "uid": "006",
@@ -46,7 +46,7 @@
       "level": "G",
       "description": "",
       "aliases": [""],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["001", "002","015","016"]
     },
     {
       "uid": "007",
@@ -54,7 +54,7 @@
       "level": "G",
       "description": "",
       "aliases": ["Run Run Shaw"],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["011","012","013","014"]
     },
     {
       "uid": "008",
@@ -62,7 +62,7 @@
       "level": "1",
       "description": "",
       "aliases": ["Run Run Shaw 1F"],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["013","014","015","016"]
     },
     {
       "uid": "009",
@@ -70,7 +70,7 @@
       "level": "G",
       "description": "",
       "aliases": ["KB"],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["047", "048","049","050"]
     },
     {
       "uid": "010",
@@ -78,7 +78,7 @@
       "level": "G",
       "description": "",
       "aliases": ["KK"],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["049","050","051","052","053","054","055","056"]
     },
     {
       "uid": "011",
@@ -86,7 +86,7 @@
       "level": "G",
       "description": "",
       "aliases": ["KKLG"],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["051","052","053","054"]
     },
     {
       "uid": "012",
@@ -94,7 +94,7 @@
       "level": "LG",
       "description": "",
       "aliases": ["MWT1"],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["059", "060","061","062"]
     },
     {
       "uid": "013",
@@ -102,7 +102,7 @@
       "level": "G",
       "description": "",
       "aliases": [""],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["059", "060"]
     },
     {
       "uid": "014",
@@ -110,7 +110,7 @@
       "level": "3",
       "description": "",
       "aliases": ["CHong Yuet Ming"],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["063", "064","065","066","067","068","069"]
     },
     {
       "uid": "015",
@@ -118,7 +118,7 @@
       "level": "4",
       "description": "",
       "aliases": [""],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["055","056","057","058","061","062","065","066","067","068","069"]
     },
     {
       "uid": "016",
@@ -126,7 +126,7 @@
       "level": "LG",
       "description": "",
       "aliases": ["CYPP"],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["057","058"]
     },
     {
       "uid": "017",
@@ -134,7 +134,7 @@
       "level": "G",
       "description": "",
       "aliases": [""],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["007","008","009","010","011","012","017", "018","033","034","035","036","037","038","063", "064"]
     },
     {
       "uid": "018",
@@ -142,7 +142,7 @@
       "level": "LG",
       "description": "",
       "aliases": ["SU"],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["001", "002","003","004","005","006"]
     },
     {
       "uid": "019",
@@ -150,7 +150,7 @@
       "level": "G",
       "description": "",
       "aliases": [""],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["003","004","005","006","007","008","019","020","039","040","041","042"]
     },
     {
       "uid": "020",
@@ -158,7 +158,7 @@
       "level": "G",
       "description": "",
       "aliases": [""],
-      "accessiblePaths": ["path_1", "path_2"]
+      "accessiblePaths": ["033","034","035","036","037","038","039","040","041","042","043","044","045","046","047", "048"]
     }
   ]
 }
