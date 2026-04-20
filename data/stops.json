@@ -150,7 +150,7 @@
       "level": "G",
       "description": "",
       "aliases": [""],
-      "accessiblePaths": ["003","004","005","006","007","008","019","020","039","040","041","042"]
+      "accessiblePaths": ["003","004","005","006","007","008","019","020","039","040","041","042","092","093"]
     },
     {
       "uid": "020",
@@ -160,5 +160,78 @@
       "aliases": [""],
       "accessiblePaths": ["033","034","035","036","037","038","039","040","041","042","043","044","045","046","047", "048"]
     }
+	
+  {
+    "uid": "021",
+    "name": "HKU MTR Station Exit A2",
+    "level": "G",
+    "description": "Primary MTR arrival node for the Main Campus, reached via the lift-only Exit A2 connection on Pokfulam Road.",
+    "aliases": ["HKU MTR A2", "HKU Station", "MTR Exit A2", "Exit A2", "地鐵站A2"],
+    "accessiblePaths": ["070"]
+  },
+  {
+    "uid": "022",
+    "name": "Haking Wong Building",
+    "level": "G",
+    "description": "Base-of-campus engineering and computer-science hub directly linked to the University Street covered walkway and the MTR side.",
+    "aliases": ["Haking Wong", "HWB", "Haking Wong Building", "黃克兢樓"],
+    "accessiblePaths": ["071", "072", "019"]
+  },
+  {
+    "uid": "023",
+    "name": "Composite Building",
+    "level": "G",
+    "description": "Upper University Street node between Haking Wong and the Centennial learning-spaces cluster.",
+    "aliases": ["Composite", "CB", "Composite Building", "綜合教學樓"],
+    "accessiblePaths": ["073", "074"]
+  },
+  {
+    "uid": "024",
+    "name": "Chow Yei Ching Building",
+    "level": "G",
+    "description": "Centennial-side podium building on the Pokfulam Road edge, commonly used as a transition node between Haking Wong and the Centennial cluster.",
+    "aliases": ["Chow Yei Ching", "CYC", "CYC Building", "周亦卿樓"],
+    "accessiblePaths": ["075", "076", "078"]
+  },
+  {
+    "uid": "025",
+    "name": "The Jockey Club Tower",
+    "level": "G",
+    "description": "The northernmost tower of the Centennial cluster, serving as the primary gateway from the University Street to the Faculty of Social Sciences.",
+    "aliases": ["賽馬會樓", "JCT"],
+    "accessiblePaths": ["077", "080", "082", "084"]
+  },
+  {
+    "uid": "026",
+    "name": "Cheng Yu Tung Tower",
+    "level": "G",
+    "description": "Major Centennial Campus tower node connected to the podium system and close to the Jockey Club Tower vertical circulation core.",
+    "aliases": ["CYT", "Cheng Yu Tung", "CYT Tower", "Centennial Campus", "鄭裕彤樓"],
+    "accessiblePaths": ["081", "088"]
+  },
+  {
+    "uid": "027",
+    "name": "Chi Wah Learning Commons",
+    "level": "G",
+    "description": "Major Centennial learning hub connected to nearby lecture facilities and the upper covered walkway system.",
+    "aliases": ["Chi Wah", "CWLC", "Learning Commons", "至華學習共享空間"],
+    "accessiblePaths": ["079", "083", "086"]
+  },
+  {
+    "uid": "028",
+    "name": "Run Run Shaw Tower",
+    "level": "G",
+    "description": "The central anchor of the Centennial cluster, housing the Faculty of Arts and serving as the primary academic hub connecting the podium to the Grand Hall.",
+    "aliases": ["RRST", "逸夫教學樓"],
+    "accessiblePaths": ["085", "087", "090"]
+  },
+  {
+    "uid": "029",
+    "name": "HKU MTR Station Exit C1",
+    "level": "G",
+    "description": "Primary MTR arrival node for the Centennial Campus, reached via the lift-only Exit C1 connection on Pokfulam Road.",
+    "aliases": ["HKU MTR C1", "HKU Station", "MTR Exit C1", "Exit C1", "地鐵站C1"],
+    "accessiblePaths": ["089", "091"]
+  }
   ]
 }
