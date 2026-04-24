@@ -1,13 +1,14 @@
 import FloatingSearchBar from "@/components/FloatingSearchBar.tsx";
 import {useState} from "react";
 import {Navigator} from "@/navigator/NavCore.ts";
+import {sanitizeMapData} from "@/navigator/DataSanitizer.ts";
 import nodeJson from "@/../data/nodes.json";
 import pathJson from "@/../data/paths.json";
 
 function App() {
 	const [navigator, setNavigator] = useState<Navigator>(
 		// @ts-expect-error json type is manually maintained
-		new Navigator(nodeJson, pathJson)
+		new Navigator(sanitizeMapData(nodeJson.nodes, pathJson.paths))
 	);
 
 	return (

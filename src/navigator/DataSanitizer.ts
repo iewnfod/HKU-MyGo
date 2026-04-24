@@ -1,6 +1,6 @@
 import type { MapNode, MapPath } from "../types/map.ts"
 
-function sanitizeMapData(rawNodes: MapNode[], rawPaths: MapPath[]) {
+export function sanitizeMapData(rawNodes: MapNode[], rawPaths: MapPath[]) {
     const nodeMap = new Map(rawNodes.map(node => [node.uid, node]));
 
     rawNodes.forEach(node => {
