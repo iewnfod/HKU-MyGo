@@ -42,7 +42,7 @@ export class Navigator {
                 return path.expectPassTime + (path.penalty || 0);
 
             case RoutingMode.MostPopular:
-                return 1.01 - (path.popularity || 0);
+                return 1 / ((path.popularity || 0) + 1);
 
             case RoutingMode.Accessible:
                 if (path.isAccessible === false) return Infinity;
