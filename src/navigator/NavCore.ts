@@ -21,11 +21,11 @@ export class Navigator {
     private nodes: Map<string, MapNode>;
     private adjacencyList: Map<string, MapPath[]>;
 
-    constructor(nodes: MapNode[], paths: MapPath[]) {
-        this.nodes = new Map(nodes.map(n => [n.uid, n]));
+    constructor(p : {nodes: MapNode[], paths: MapPath[]}) {
+        this.nodes = new Map(p.nodes.map(n => [n.uid, n]));
         this.adjacencyList = new Map();
         
-        paths.forEach(path => {
+        p.paths.forEach(path => {
             if (!this.adjacencyList.has(path.fromNodeUid)) {
                 this.adjacencyList.set(path.fromNodeUid, []);
             }
@@ -56,6 +56,18 @@ export class Navigator {
                 return path.expectPassTime;
         }
     }
+
+	public searchLocation(text: string): MapNode[] {
+		text = text.toLowerCase();
+		const possibleNodes: MapNode[] = [];
+		this.nodes.forEach(node => {
+			const aliases = node.aliases.map(t => t.toLowerCase());
+			if (node.name.toLowerCase().includes(text) || aliases.includes(text)) {
+				possibleNodes.push(node);
+			}
+		});
+		return possibleNodes;
+	}
 
     public findPath(startUid: string, endUid: string, mode: RoutingMode): RouteResult | null {
         const distances = new Map<string, number>();
