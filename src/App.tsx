@@ -7,12 +7,11 @@ import pathJson from "@/../data/paths.json";
 
 function App() {
 	const [navigator, setNavigator] = useState<Navigator>(
-		// @ts-expect-error json type is manually maintained
 		new Navigator(sanitizeMapData(nodeJson.nodes, pathJson.paths))
 	);
 
 	return (
-		<div className="w-screen h-screen overflow-hidden p-4">
+		<div className="w-screen h-screen overflow-hidden flex flex-row justify-between items-center p-4">
 			<FloatingSearchBar navigator={navigator}/>
 		</div>
 	);
