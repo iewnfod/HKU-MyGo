@@ -10,6 +10,7 @@ function sanitizeMapData(rawNodes: MapNode[], rawPaths: MapPath[]) {
     rawPaths.forEach(path => {
         const sourceNode = nodeMap.get(path.fromNodeUid);
         if (sourceNode) {
+            sourceNode.accessiblePaths ??= [];
             sourceNode.accessiblePaths.push(path.uid);
         }
     });
