@@ -41,7 +41,7 @@ export default function SearchInput({
 
 	if (selectedOption) {
 		return (
-			<div className="w-full flex flex-col justify-center items-start md:w-[50vw] lg:w-[40vw]">
+			<div className="w-full flex flex-col justify-center items-start">
 				<Label>{label}</Label>
 				<Card className="w-full select-none rounded-lg">
 					<Card.Content>
@@ -62,7 +62,7 @@ export default function SearchInput({
 		);
 	} else {
 		return (
-			<div className="w-full flex flex-col justify-center items-center md:w-[50vw] lg:w-[40vw]">
+			<div className="w-full flex flex-col justify-center items-center">
 				<TextField className="w-full">
 					{label && (
 						<Label>{label}</Label>

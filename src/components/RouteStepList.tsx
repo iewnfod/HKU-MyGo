@@ -26,7 +26,7 @@ export default function RouteStepList({
 	}
 
 	return (
-		<div className="w-full mt-4 rounded-2xl bg-white/95 shadow-sm border border-gray-200 overflow-hidden">
+		<div className="w-full mt-4 rounded-2xl bg-white/95 shadow-sm border border-gray-200 overflow-hidden max-h-full h-auto">
 			<div className="flex flex-row items-center gap-4 p-4 bg-gray-50/80 border-b border-gray-100">
 				<div className="flex flex-col">
 					<p className="text-xs font-medium text-gray-400">Estimated time</p>
@@ -44,37 +44,39 @@ export default function RouteStepList({
 				</div>
 			</div>
 
-			<div className="flex flex-col px-4 py-4">
-				{
-					segments.map((segment, index) => (
-						<div className="flex flex-row gap-3" key={segment.uid}>
-							<div className="flex flex-col items-center">
-								<div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 flex justify-center items-center">
-									{getPathIcon(segment)}
-								</div>
-								{index < segments.length - 1 && (
-									<div className="w-px grow min-h-14 bg-gray-200 my-1"/>
-								)}
-							</div>
-							<div className="flex flex-col grow pb-5">
-								<div className="flex flex-row justify-between items-start gap-4">
-									<div className="flex flex-col gap-1 min-w-0">
-										<p className="text-base font-semibold text-gray-950 leading-snug">
-											{segment.name || `Step ${index + 1}`}
-										</p>
-										<p className="text-xs text-gray-500 leading-relaxed">
-											{segment.description || `${segment.fromNodeUid} to ${segment.toNodeUid}`}
-										</p>
+			<div className="overflow-y-auto max-h-full grow">
+				<div className="flex flex-col px-4 py-4">
+					{
+						segments.map((segment, index) => (
+							<div className="flex flex-row gap-3" key={segment.uid}>
+								<div className="flex flex-col items-center">
+									<div className="w-8 h-8 rounded-full bg-blue-50 border border-blue-100 flex justify-center items-center">
+										{getPathIcon(segment)}
 									</div>
-									<div className="flex flex-col items-end shrink-0">
-										<p className="text-sm font-semibold text-gray-950">{formatTime(segment.expectPassTime)}</p>
-										<p className="text-xs text-gray-400">{segment.distance}m</p>
+									{index < segments.length - 1 && (
+										<div className="w-px grow min-h-14 bg-gray-200 my-1"/>
+									)}
+								</div>
+								<div className="flex flex-col grow pb-5">
+									<div className="flex flex-row justify-between items-start gap-4">
+										<div className="flex flex-col gap-1 min-w-0">
+											<p className="text-base font-semibold text-gray-950 leading-snug">
+												{segment.name || `Step ${index + 1}`}
+											</p>
+											<p className="text-xs text-gray-500 leading-relaxed">
+												{segment.description || `${segment.fromNodeUid} to ${segment.toNodeUid}`}
+											</p>
+										</div>
+										<div className="flex flex-col items-end shrink-0">
+											<p className="text-sm font-semibold text-gray-950">{formatTime(segment.expectPassTime)}</p>
+											<p className="text-xs text-gray-400">{segment.distance}m</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					))
-				}
+						))
+					}
+				</div>
 			</div>
 		</div>
 	);
