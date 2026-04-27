@@ -33,7 +33,7 @@
       "fromNodeUid": "018",
       "toNodeUid": "019",
       "name": "SU stairs",
-      "expectPassTime": 15,
+      "expectPassTime": 20,
       "distance": 10,
       "type": "stair",
       "popularity": 50,
@@ -47,7 +47,7 @@
       "fromNodeUid": "019",
       "toNodeUid": "018",
       "name": "SU stairs",
-      "expectPassTime": 9,
+      "expectPassTime": 12,
       "distance": 10,
       "type": "stair",
       "popularity": 50,
@@ -95,7 +95,7 @@
       "popularity": 200,
       "penalty": 15,
       "description": "HW Elevator Platform to University Street Run Run Shaw Point",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -109,7 +109,7 @@
       "popularity": 200,
       "penalty": 15,
       "description": "University Street Run Run Shaw Point to HW Elevator Platform",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -123,7 +123,7 @@
       "popularity": 5,
       "penalty": 0,
       "description": "University Street Run Run Shaw Point to Hui Oi Chow Science Building",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -137,7 +137,7 @@
       "popularity": 5,
       "penalty": 0,
       "description": "Hui Oi Chow Science Building to University Street Run Run Shaw Point",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -151,7 +151,7 @@
       "popularity": 20,
       "penalty": 0,
       "description": "University Street Run Run Shaw Point to Run Run Shaw Building Ground Floor",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -165,7 +165,7 @@
       "popularity": 20,
       "penalty": 0,
       "description": "Run Run Shaw Building Ground Floor to University Street Run Run Shaw Point",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -173,7 +173,7 @@
       "fromNodeUid": "007",
       "toNodeUid": "008",
       "name": "Run Run Shaw Building Stairs",
-      "expectPassTime": 15,
+      "expectPassTime": 20,
       "distance":10,
       "type": "stair",
       "popularity": 10,
@@ -187,7 +187,7 @@
       "fromNodeUid": "008",
       "toNodeUid": "007",
       "name": "Run Run Shaw Building Stairs",
-      "expectPassTime": 9,
+      "expectPassTime": 12,
       "distance":10,
       "type": "stair",
       "popularity": 10,
@@ -227,20 +227,20 @@
     {
       "uid": "017",
       "fromNodeUid": "017",
-      "toNodeUid": "003",
+      "toNodeUid": "030",
       "name": "University Street",
       "expectPassTime": 60,
       "distance":80,
       "type": "road",
       "popularity": 30,
       "penalty": 10,
-      "description": "University Street Run Run Shaw Point to Main Library Second Floor",
-      "isOpenAir": true,
+      "description": "University Street Run Run Shaw Point to Main Library Second Floor Entrance/Exit",
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
       "uid": "018",
-      "fromNodeUid": "003",
+      "fromNodeUid": "030",
       "toNodeUid": "017",
       "name": "University Street",
       "expectPassTime": 60,
@@ -248,27 +248,27 @@
       "type": "road",
       "popularity": 30,
       "penalty": 10,
-      "description": "Main Library Second Floor to University Street Run Run Shaw Point",
-      "isOpenAir": true,
+      "description": "Main Library Second Floor Entrance/Exit to University Street Run Run Shaw Point",
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
       "uid": "019",
       "fromNodeUid": "019",
-      "toNodeUid": "003",
+      "toNodeUid": "030",
       "name": "University Street",
       "expectPassTime": 70,
       "distance": 90,
       "type": "road",
       "popularity": 50,
       "penalty": 10,
-      "description": "HW Elevator Platform to Main Library Second Floor",
-      "isOpenAir": true,
+      "description": "HW Elevator Platform to Main Library Second Floor Entrance/Exit",
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
       "uid": "020",
-      "fromNodeUid": "003",
+      "fromNodeUid": "030",
       "toNodeUid": "019",
       "name": "University Street",
       "expectPassTime": 70,
@@ -276,8 +276,8 @@
       "type": "road",
       "popularity": 50,
       "penalty": 10,
-      "description": "Main Library Second Floor to HW Elevator Platform",
-      "isOpenAir": true,
+      "description": "Main Library Second Floor Entance/Exit to HW Elevator Platform",
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -285,7 +285,7 @@
       "fromNodeUid": "003",
       "toNodeUid": "002",
       "name": "Main Library Stairs",
-      "expectPassTime": 9,
+      "expectPassTime": 12,
       "distance": 10,
       "type": "stair",
       "popularity": 20,
@@ -299,7 +299,7 @@
       "fromNodeUid": "002",
       "toNodeUid": "003",
       "name": "Main Library Stairs",
-      "expectPassTime": 15,
+      "expectPassTime": 20,
       "distance": 10,
       "type": "stair",
       "popularity": 20,
@@ -341,7 +341,7 @@
       "fromNodeUid": "002",
       "toNodeUid": "001",
       "name": "Main Library Stairs",
-      "expectPassTime": 9,
+      "expectPassTime": 12,
       "distance": 10,
       "type": "stair",
       "popularity": 20,
@@ -355,7 +355,7 @@
       "fromNodeUid": "001",
       "toNodeUid": "002",
       "name": "Main Library Stairs",
-      "expectPassTime": 15,
+      "expectPassTime": 20,
       "distance": 10,
       "type": "stair",
       "popularity": 20,
@@ -422,30 +422,30 @@
     },
     {
       "uid": "031",
-      "fromNodeUid": "001",
+      "fromNodeUid": "031",
       "toNodeUid": "004",
-      "name": "LE stairs and Main Building Sky-bridge",
+      "name": "Pass LE stairs",
       "expectPassTime": 30,
       "distance": 45,
       "type": "stair",
       "popularity": 10,
       "penalty": 5,
-      "description": "Main Library Ground Floor to Main Building",
-      "isOpenAir": true,
+      "description": "Main Library Ground Floor Entrance/Exit to Main Building",
+      "isOpenAir": false,
       "isAccessible": false
     },
     {
       "uid": "032",
       "fromNodeUid": "004",
-      "toNodeUid": "001",
-      "name": "LE stairs and Main Building Sky-bridge",
+      "toNodeUid": "031",
+      "name": "Pass LE stairs",
       "expectPassTime": 40,
       "distance": 45,
       "type": "stair",
       "popularity": 10,
       "penalty": 5,
-      "description": "Main Building to Main Library Ground Floor",
-      "isOpenAir": true,
+      "description": "Main Building to Main Library Ground Floor Entrance/Exit",
+      "isOpenAir": false,
       "isAccessible": false
     },
     {
@@ -487,7 +487,7 @@
       "popularity": 40,
       "penalty": 5,
       "description": "Main Library Open Space to University Street Run Run Shaw Point",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": false
     },
     {
@@ -501,7 +501,7 @@
       "popularity": 40,
       "penalty": 5,
       "description": "University Street Run Run Shaw Point to Main Library Open Space",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": false
     },
     {
@@ -515,7 +515,7 @@
       "popularity": 1,
       "penalty": 0,
       "description": "University Street Run Run Shaw Point to Main Library Open Space",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -529,7 +529,7 @@
       "popularity": 1,
       "penalty": 0,
       "description": "Main Library Open Space to University Street Run Run Shaw Point",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -543,7 +543,7 @@
       "popularity": 1,
       "penalty": 0,
       "description": "Main Library Open Space to HW Elevator Platform",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -557,7 +557,7 @@
       "popularity": 1,
       "penalty": 0,
       "description": "HW Elevator Platform to Main Library Open Space",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -571,7 +571,7 @@
       "popularity": 40,
       "penalty": 5,
       "description": "HW Elevator Platform to Main Library Open Space",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": false
     },
     {
@@ -585,26 +585,26 @@
       "popularity": 40,
       "penalty": 5,
       "description": "Main Library Open Space to HW Elevator Platform",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": false
     },
     {
       "uid": "043",
       "fromNodeUid": "020",
-      "toNodeUid": "001",
+      "toNodeUid": "031",
       "name": "Enter Main Library Groud Floor",
       "expectPassTime": 15,
       "distance":20,
       "type": "road",
       "popularity": 20,
       "penalty": 15,
-      "description": "Main Library Open Space to Main Library Ground Floor",
-      "isOpenAir": true,
+      "description": "Main Library Open Space to Main Library Ground Floor Entrance/Exit",
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
       "uid": "044",
-      "fromNodeUid": "001",
+      "fromNodeUid": "031",
       "toNodeUid": "020",
       "name": "Exit Main Library Groud Floor",
       "expectPassTime": 15,
@@ -612,8 +612,8 @@
       "type": "road",
       "popularity": 20,
       "penalty": 5,
-      "description": "Main Library Ground Floor to Main Library Open Space",
-      "isOpenAir": true,
+      "description": "Main Library Ground Floor Entrance/Exit to Main Library Open Space",
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -627,7 +627,7 @@
       "popularity": 20,
       "penalty": 0,
       "description": "Main Building to Main Library Open Space",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": false
     },
     {
@@ -635,13 +635,13 @@
       "fromNodeUid": "020",
       "toNodeUid": "004",
       "name": "Pass LE stairs",
-      "expectPassTime": 50,
+      "expectPassTime": 40,
       "distance":55,
       "type": "stair",
       "popularity": 20,
       "penalty": 0,
       "description": "Main Library Open Space to Main Building",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": false
     },
     {
@@ -655,7 +655,7 @@
       "popularity": 20,
       "penalty": 0,
       "description": "Main Library Open Space to Knowles Building",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -669,7 +669,7 @@
       "popularity": 20,
       "penalty": 0,
       "description": "Knowles Building to Main Library Open Space",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -705,7 +705,7 @@
       "fromNodeUid": "010",
       "toNodeUid": "011",
       "name": "K.K. Leung Building Stairs",
-      "expectPassTime": 9,
+      "expectPassTime": 12,
       "distance": 10,
       "type": "stair",
       "popularity": 10,
@@ -719,7 +719,7 @@
       "fromNodeUid": "011",
       "toNodeUid": "010",
       "name": "K.K. Leung Building Stairs",
-      "expectPassTime": 15,
+      "expectPassTime": 20,
       "distance": 10,
       "type": "stair",
       "popularity": 10,
@@ -795,7 +795,7 @@
       "popularity": 60,
       "penalty": 15,
       "description": "CYM Amenities Forth Floor to CYM Physics Lower Ground",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -809,7 +809,7 @@
       "popularity": 60,
       "penalty": 15,
       "description": "CYM Physics Lower Ground to CYM Amenities Forth Floor",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -817,13 +817,13 @@
       "fromNodeUid": "013",
       "toNodeUid": "012",
       "name": "Meng Wah Complex Stairs",
-      "expectPassTime": 9,
+      "expectPassTime": 12,
       "distance": 10,
       "type": "stair",
       "popularity": 10,
       "penalty": 0,
       "description": "Meng Wah Complex Ground Floor to Meng Wah Complex Lower Ground Floor",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": false
     },
     {
@@ -831,13 +831,13 @@
       "fromNodeUid": "012",
       "toNodeUid": "013",
       "name": "Meng Wah Complex Stairs",
-      "expectPassTime": 15,
+      "expectPassTime": 20,
       "distance": 10,
       "type": "stair",
       "popularity": 10,
       "penalty": 0,
       "description": "Meng Wah Complex Lower Ground Floor to Meng Wah Complex Ground Floor",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": false
     },
     {
@@ -879,7 +879,7 @@
       "popularity": 30,
       "penalty": 20,
       "description": "CYM Amenities Third Floor to University Street Run Run Shaw Point",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -893,7 +893,7 @@
       "popularity": 30,
       "penalty": 20,
       "description": "University Street Run Run Shaw Point to CYM Amenities Third Floor",
-      "isOpenAir": true,
+      "isOpenAir": false,
       "isAccessible": true
     },
     {
@@ -901,7 +901,7 @@
       "fromNodeUid": "014",
       "toNodeUid": "015",
       "name": "Chong Yuet Ming Amenities Stairs",
-      "expectPassTime": 15,
+      "expectPassTime": 20,
       "distance": 10,
       "type": "stair",
       "popularity": 30,
@@ -915,7 +915,7 @@
       "fromNodeUid": "015",
       "toNodeUid": "014",
       "name": "Chong Yuet Ming Amenities Stairs",
-      "expectPassTime": 9,
+      "expectPassTime": 12,
       "distance": 10,
       "type": "stair",
       "popularity": 30,
@@ -929,7 +929,7 @@
       "fromNodeUid": "014",
       "toNodeUid": "015",
       "name": "Chong Yuet Ming Amenities Centre Escalator",
-      "expectPassTime": 10,
+      "expectPassTime": 15,
       "distance": 10,
       "type": "escalator",
       "popularity": 60,
@@ -1301,6 +1301,62 @@
       "description": "Enter the elevator platform from the Haking Wong .",
       "isOpenAir": true,
       "isAccessible": false
+    },
+    {
+      "uid": "094",
+      "fromNodeUid": "003",
+      "toNodeUid": "030",
+      "name": "Enter/Exit Main Library Second Floor",
+      "expectPassTime": 15,
+      "distance":10,
+      "type": "road",
+      "popularity": 20,
+      "penalty": 5,
+      "description": "Main Library Second Floor to Main Library Second Floor Entrance/Exit",
+      "isOpenAir": false,
+      "isAccessible": true
+    },
+    {
+      "uid": "095",
+      "fromNodeUid": "030",
+      "toNodeUid": "003",
+      "name": "Enter/Exit Main Library Second Floor",
+      "expectPassTime": 15,
+      "distance":10,
+      "type": "road",
+      "popularity": 20,
+      "penalty": 5,
+      "description": "Main Library Second Floor Entrance/Exit to Main Library Second Floor",
+      "isOpenAir": false,
+      "isAccessible": true
+    },
+    {
+      "uid": "096",
+      "fromNodeUid": "031",
+      "toNodeUid": "001",
+      "name": "Enter/Exit Main Library Ground Floor",
+      "expectPassTime": 15,
+      "distance":10,
+      "type": "road",
+      "popularity": 20,
+      "penalty": 30,
+      "description": "Main Library Ground Floor Entrance/Exit to Main Library Ground Floor",
+      "isOpenAir": false,
+      "isAccessible": true
+    },
+    {
+      "uid": "097",
+      "fromNodeUid": "001",
+      "toNodeUid": "031",
+      "name": "Enter/Exit Main Library Ground Floor",
+      "expectPassTime": 15,
+      "distance":10,
+      "type": "road",
+      "popularity": 20,
+      "penalty": 30,
+      "description": "Main Library Ground Floor Entrance/Exit to Main Library Ground Floor",
+      "isOpenAir": false,
+      "isAccessible": true
     }
   ]
 }
