@@ -69,6 +69,21 @@ export class Navigator {
 		return possibleNodes;
 	}
 
+	public findPathSegments(path: MapNode[], mode: RoutingMode): MapPath[] | null {
+		const segments: MapPath[] = [];
+		for (let i = 0; i < path.length - 1; i++) {
+			const fromNode = path[i];
+			const toNode = path[i + 1];
+			const possiblePaths = this.adjacencyList.get(fromNode.uid) || [];
+			const segment = possiblePaths
+				.filter(path => path.toNodeUid === toNode.uid && this.calculateWeight(path, mode) !== Infinity)
+				.sort((a, b) => this.calculateWeight(a, mode) - this.calculateWeight(b, mode))[0];
+			if (!segment) return null;
+			segments.push(segment);
+		}
+		return segments;
+	}
+
     public findPath(startUid: string, endUid: string, mode: RoutingMode): RouteResult | null {
         const distances = new Map<string, number>();
         const parentPath = new Map<string, { nodeUid: string, path: MapPath }>();
