@@ -1,13 +1,32 @@
 import {Card, Button} from "@heroui/react";
 import {SettingsIcon} from "lucide-react";
-import {Navigator} from "@/navigator/NavCore.ts";
+import {Navigator, RoutingMode} from "@/navigator/NavCore.ts";
 import SearchInput from "@/components/SearchInput.tsx";
+import RouteStepList from "@/components/RouteStepList.tsx";
 import {useState} from "react";
-import type {MapNode} from "@/types/map.ts";
+import type {MapNode, MapPath} from "@/types/map.ts";
 
 export default function FloatingSearchBar({navigator} : {navigator: Navigator}) {
 	const [start, setStart] = useState<MapNode | null>(null);
 	const [end, setEnd] = useState<MapNode | null>(null);
+	const [segments, setSegments] = useState<MapPath[]>([]);
+	const [totalTime, setTotalTime] = useState<number>(0);
+	const [totalDistance, setTotalDistance] = useState<number>(0);
+
+	const handleGeneratePath = () => {
+		if (start === null || end === null) return;
+		const routeResult = navigator.findPath(start.uid, end.uid, RoutingMode.FastestNormal);
+		console.log(routeResult);
+		if (routeResult) {
+			const pathSegments = navigator.findPathSegments(routeResult.path, RoutingMode.FastestNormal);
+			console.log(pathSegments);
+			if (pathSegments) {
+				setSegments(pathSegments);
+				setTotalTime(routeResult.totalTime);
+				setTotalDistance(routeResult.totalDistance);
+			}
+		}
+	}
 
 	return (
 		<Card className="flex flex-col justify-start items-center min-w-24 h-full gap-4" variant="transparent">
@@ -27,9 +46,12 @@ export default function FloatingSearchBar({navigator} : {navigator: Navigator}) 
 					<SearchInput navigator={navigator} label="End" onSelect={setEnd} />
 				</div>
 			</div>
-			<Button className="w-full mt-2" isDisabled={start === null || end === null || start === end}>
+			<Button className="w-full mt-2" isDisabled={start === null || end === null || start === end} onClick={handleGeneratePath}>
 				Generate Path!
 			</Button>
+			{segments.length > 0 && (
+				<RouteStepList totalTime={totalTime} totalDistance={totalDistance} segments={segments} />
+			)}
 		</Card>
 	);
 }
