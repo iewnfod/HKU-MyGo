@@ -4,140 +4,140 @@
       "uid": "001",
       "name": "Main Library Building Ground Floor",
       "level": "G",
-      "description": "",
+      "description": "Serves as the primary transitional hub that leads from casual gathering and breakout spaces to focused quiet and deep-quiet study zones at the heart of the building.",
       "aliases": ["Library", "Main Library"]
     },
     {
       "uid": "002",
       "name": "Main Library Building First Floor",
       "level": "1",
-      "description": "",
+      "description": "Housing the renowned Special Collections and serving as the repository for unique Hong Kong materials, rare books, and microforms essential for advanced research.",
       "aliases": ["Library 1F", "Main Library 1F"]
     },
     {
       "uid": "003",
       "name": "Main Library Building Second Floor",
       "level": "2",
-      "description": "",
+      "description": "Housing the Ingenium and the Learning Hub, and serving as the primary digital innovation space that connects the main entrance to zones for creative collaboration, visualization, and production",
       "aliases": ["Library 2F", "Main Library 2F"]
     },
     {
       "uid": "004",
       "name": "Main Building",
       "level": "1",
-      "description": "",
+      "description": "This 1912 Edwardian Baroque-style declared monument anchors the Main Campus with its iconic clock tower, red-brick façade, and Loke Yew Hall, originally housing the entire university and now serving as a blended space for teaching, major events, and central administration.",
       "aliases": ["MB"]
     },
     {
       "uid": "005",
       "name": "Hui Oi Chow Science Building",
       "level": "G",
-      "description": "",
+      "description": "The connecting node bridging the Main Campus to the west, this six-story building opened in 1981 anchors scientific research by housing the Departments of Chemistry, Physics, and Earth Sciences, as well as the Tam Wing Fan Innovation Wing",
       "aliases": [""]
     },
     {
       "uid": "006",
       "name": "Graduate House",
       "level": "G",
-      "description": "",
+      "description": "The verdant residential anchor on the southwest slope, designed by Rocco Yim, merging student living, an amenity centre, and the Wang Gungwu Lecture Hall into the lush hillside while connecting the campus to the city below",
       "aliases": [""]
     },
     {
       "uid": "007",
       "name": "Run Run Shaw Building Ground Floor",
       "level": "G",
-      "description": "",
+      "description": "This floor is also home to the Tam Wing Fan Innovation Wing Two, a state-of-the-art research facility under the Faculty of Engineering",
       "aliases": ["Run Run Shaw"]
     },
     {
       "uid": "008",
       "name": "Run Run Shaw Building First Floor",
       "level": "1",
-      "description": "",
+      "description": "The operational core of the Main Campus' Central cluster, historically housing the IT Services computer centre and now a functional floor within the Shaw Buildings complex above the lively podium and Innovation Wing below.",
       "aliases": ["Run Run Shaw 1F"]
     },
     {
       "uid": "009",
       "name": "Knowles Building",
       "level": "G",
-      "description": "",
+      "description": "The architectural soul of the Main Campus, this 1973 modernist landmark houses the entire Faculty of Architecture within its uniquely disorienting, flexible floor plates, wrapped in a distinctive brise-soleil façade and linked to the Main Library by a mid-level bridge",
       "aliases": ["KB"]
     },
     {
       "uid": "010",
       "name": "K.K. Leung Building Ground Floor",
       "level": "G",
-      "description": "",
+      "description": "The bustling academic gateway of the K.K. Leung Building, strategically located near the main entrance levels to handle heavy student traffic, housing centrally timetabled lecture rooms.",
       "aliases": ["KK"]
     },
     {
       "uid": "011",
       "name": "K.K. Leung Building Lower Ground Floor",
       "level": "G",
-      "description": "",
+      "description": "The instructional core and primary teaching zone of the K.K. Leung Building, located just below the main entrance concourse, housing centrally timetabled lecture rooms and seminar spaces to serve the heavy flow of student traffic",
       "aliases": ["KKLG"]
     },
     {
       "uid": "012",
       "name": "Meng Wah Complex Lower Ground Floor",
       "level": "LG",
-      "description": "",
+      "description": "The complex is a key part of campus life, housing the Faculty of Education, CEDARS, MWT1 lecture room",
       "aliases": ["MWT1"]
     },
     {
       "uid": "013",
       "name": "Meng Wah Complex Ground Floor",
       "level": "G",
-      "description": "",
+      "description": "The complex is a key part of campus life, housing the Faculty of Education, CEDARS, MWT2 and MWT3 lecture room",
       "aliases": [""]
     },
     {
       "uid": "014",
       "name": "Chong Yuet Ming Amenities Centre Third Floor",
       "level": "3",
-      "description": "",
+      "description": "Linking the Chong Yuet Ming Amenities Centre to the University Street.",
       "aliases": ["CHong Yuet Ming"]
     },
     {
       "uid": "015",
       "name": "Chong Yuet Ming Amenities Centre Forth Floor",
       "level": "4",
-      "description": "",
+      "description": "Linking Chong Yuet Ming Amenities Centre with Meng Wah Complex.",
       "aliases": [""]
     },
     {
       "uid": "016",
       "name": "Chong Yuet Ming Physics Building Lower Ground Floor",
       "level": "LG",
-      "description": "",
+      "description": "The dedicated teaching and seminar hub of the Chong Yuet Ming Physics Building, located on LG1/F and featuring a cluster of centrally timetabled lecture theatres.",
       "aliases": ["CYPP"]
     },
     {
       "uid": "017",
       "name": "University Street Run Run Shaw Point",
       "level": "G",
-      "description": "",
+      "description": "Connects Main Library, Run Run Shaw Building, Hui Oi Chow Science Building and Knowles Building to the University Street",
       "aliases": [""]
     },
     {
       "uid": "018",
       "name": "SU Restaurant",
       "level": "LG",
-      "description": "",
-      "aliases": ["SU"]
+      "description": "The affordable communal dining hub of the Main Campus, commonly known as SU Restaurant or Union Restaurant.",
+      "aliases": ["SU","Union Restaurant"]
     },
     {
       "uid": "019",
       "name": "Haking Wong Building Elevator Platform",
       "level": "G",
-      "description": "",
+      "description": "Connects the HKU MTR Station Exit A2 to the rest of the Campus Levels.",
       "aliases": [""]
     },
     {
       "uid": "020",
       "name": "Main Library Open Space",
       "level": "G",
-      "description": "",
+      "description": "Passway between the Main Library, Knowles Building and K.K. Leung Building ",
       "aliases": [""]
     },
     {
