@@ -202,6 +202,20 @@
       "level": "G",
       "description": "Primary MTR arrival node for the Centennial Campus, reached via the lift-only Exit C1 connection on Pokfulam Road.",
       "aliases": ["HKU MTR C1", "HKU Station", "MTR Exit C1", "Exit C1", "地鐵站C1"]
+    },
+    {
+      "uid": "030",
+      "name": " Main Library Second Floor Entrance/Exit",
+      "level": "2",
+      "description": "",
+      "aliases": [""]
+    },
+    {
+      "uid": "031",
+      "name": " Main Library Ground Floor Entrance/Exit",
+      "level": "G",
+      "description": "",
+      "aliases": [""]
     }
   ]
 }
