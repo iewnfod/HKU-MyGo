@@ -2,6 +2,7 @@ import type {MapNode, MapPath} from "@/types/map.ts";
 import {useEffect, useState} from "react";
 import {FaMapPin} from "react-icons/fa6";
 import {TbElevator, TbEscalator, TbRoad, TbStairs} from "react-icons/tb";
+import { I18n } from "@/services/I18nService";
 
 export default function ActiveStepsDisplay({
 	nodes,
@@ -92,16 +93,16 @@ export default function ActiveStepsDisplay({
 						</div>
 						<div className="flex flex-col gap-2 grow min-w-0">
 							<div className="flex flex-row items-center gap-2">
-								<p className="text-xs font-medium text-gray-400">Step {activeStepIndex + 1} of {totalSteps}</p>
+								<p className="text-xs font-medium text-gray-400">{I18n.get("app.activestepsdisplay.step")} {activeStepIndex + 1} {I18n.get("app.activestepsdisplay.of")} {totalSteps}</p>
 								{isNodeStep && displayStepIndex === 0 && (
-									<p className="h-5 rounded-full bg-gray-100 px-2 text-xs font-medium leading-5 text-gray-500">Start</p>
+									<p className="h-5 rounded-full bg-gray-100 px-2 text-xs font-medium leading-5 text-gray-500">{I18n.get("app.activestepsdisplay.start")}</p>
 								)}
 								{isNodeStep && displayStepIndex === totalSteps - 1 && (
-									<p className="h-5 rounded-full bg-gray-100 px-2 text-xs font-medium leading-5 text-gray-500">End</p>
+									<p className="h-5 rounded-full bg-gray-100 px-2 text-xs font-medium leading-5 text-gray-500">{I18n.get("app.activestepsdisplay.end")}</p>
 								)}
 							</div>
 							<p className="text-lg font-semibold leading-snug text-gray-950">
-								{isNodeStep ? currentNode?.name : currentSegment?.name || `Step ${Math.floor(displayStepIndex / 2) + 1}`}
+								{isNodeStep ? I18n.get(`map.nodes.${currentNode?.uid}.name`, currentNode?.name) : I18n.get(`map.paths.${currentSegment?.uid}.name`, currentSegment?.name) || `${I18n.get("app.activestepsdisplay.step")} ${Math.floor(displayStepIndex / 2) + 1}`}
 							</p>
 							{!isNodeStep && currentSegment && (
 								<div className="flex flex-row items-center gap-3 text-sm text-gray-500">
@@ -113,9 +114,9 @@ export default function ActiveStepsDisplay({
 						</div>
 					</div>
 
-					{!isNodeStep && currentSegment && (
+					{!isNodeStep && currentSegment && currentSegment.description && (
 						<p className="text-sm leading-relaxed text-gray-500">
-							{currentSegment.description || `${currentSegment.fromNodeUid} to ${currentSegment.toNodeUid}`}
+							{I18n.get(`map.paths.${currentSegment.uid}.description`, currentSegment.description)}
 						</p>
 					)}
 				</div>
@@ -125,14 +126,14 @@ export default function ActiveStepsDisplay({
 						className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${activeStepIndex === 0 ? 'text-gray-300 cursor-default' : 'text-gray-600 hover:bg-gray-50 active:scale-95'}`}
 						onClick={handlePrevious}
 					>
-						Previous
+						{I18n.get("app.activestepsdisplay.previous")}
 					</button>
 					<button
 						type="button"
 						className="rounded-full bg-blue-600 px-5 py-2 text-sm font-medium text-white shadow-sm shadow-blue-200 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-blue-700 active:scale-95"
 						onClick={handleNext}
 					>
-						{isLastStep ? "Finish" : "Next"}
+						{isLastStep ? I18n.get("app.activestepsdisplay.finish") : I18n.get("app.activestepsdisplay.next")}
 					</button>
 				</div>
 			</div>

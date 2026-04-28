@@ -1,4 +1,4 @@
-import type {MapNode, MapPath} from "@/types/map.ts";
+import type { MapNode, MapPath } from "@/types/map.ts";
 
 export class MapData {    
     private static nodes: MapNode[] = [];

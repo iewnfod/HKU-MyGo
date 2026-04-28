@@ -1,4 +1,33 @@
 {
+    "app.activestepsdisplay.step": "Step",
+    "app.activestepsdisplay.of": "of",
+    "app.activestepsdisplay.start": "Start",
+    "app.activestepsdisplay.end": "End",
+    "app.activestepsdisplay.previous": "Previous",
+    "app.activestepsdisplay.next": "Next",
+    "app.activestepsdisplay.finish": "Finish",
+
+    "app.floatingsearchbar.peak_hour": "Peak Hours",
+    "app.floatingsearchbar.mode": "Mode",
+    "app.floatingsearchbar.mode.fastest": "Fastest",
+    "app.floatingsearchbar.mode.popular": "Popular",
+    "app.floatingsearchbar.mode.accessible": "Accessible",
+    "app.floatingsearchbar.mode.indoor": "Indoor",
+    "app.floatingsearchbar.start": "Start",
+    "app.floatingsearchbar.end": "End",
+    "app.floatingsearchbar.generate_path": "Generate Path!",
+
+    "app.routeerrorpanel.message": "Sorry, your specified route does not exist in the database",
+
+    "app.routesteplist.estimated_time": "Estimated time",
+    "app.routesteplist.distance": "Distance",
+    "app.routesteplist.steps": "Steps",
+    "app.routesteplist.start": "Start",
+    "app.routesteplist.end": "End",
+    "app.routesteplist.step": "Step",
+
+    "app.searchinput.placeholder": "Search Location...",
+
     "map.nodes.001.name": "Main Library Building Ground Floor",
     "map.nodes.001.description": "Serves as the primary transitional hub that leads from casual gathering and breakout spaces to focused quiet and deep-quiet study zones at the heart of the building.",
     "map.nodes.002.name": "Main Library Building First Floor",

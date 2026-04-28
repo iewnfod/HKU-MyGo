@@ -1,13 +1,15 @@
-import {Card, Button} from "@heroui/react";
-import {AccessibilityIcon, ChevronDownIcon, DoorOpenIcon, UsersIcon, ZapIcon} from "lucide-react";
-import {Navigator, RoutingMode} from "@/services/NavigatorService";
+import { Card, Button } from "@heroui/react";
+import { AccessibilityIcon, ChevronDownIcon, DoorOpenIcon, UsersIcon, ZapIcon } from "lucide-react";
+import { RoutingMode } from "@/services/NavigatorService";
 import SearchInput from "@/components/SearchInput.tsx";
 import ActiveStepsDisplay from "@/components/ActiveStepsDisplay.tsx";
-import {useCallback, useState} from "react";
-import type {MapNode, MapPath} from "@/types/map.ts";
+import { useCallback, useState } from "react";
+import type { MapNode, MapPath } from "@/types/map.ts";
+import { I18n } from "@/services/I18nService";
+import type { LangCode } from "@/services/I18nService";
+import { useI18n } from "@/hooks/useI18n";
 
-export default function FloatingSearchBar({navigator, onGeneratePath, hasResult, nodes, segments, activeStepIndex, onChangeStep} : {
-	navigator: Navigator;
+export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, segments, activeStepIndex, onChangeStep} : {
 	onGeneratePath: (start: MapNode, end: MapNode, mode: RoutingMode) => void;
 	hasResult: boolean;
 	nodes: MapNode[];
@@ -20,31 +22,39 @@ export default function FloatingSearchBar({navigator, onGeneratePath, hasResult,
 	const [selectedMode, setSelectedMode] = useState<RoutingMode>(RoutingMode.FastestNormal);
 	const [isPeakHours, setIsPeakHours] = useState<boolean>(false);
 	const [shouldShowModeOptions, setShouldShowModeOptions] = useState<boolean>(false);
+	const [shouldShowLangOptions, setShouldShowLangOptions] = useState<boolean>(false);
+	const [lang, setLang] = useI18n();
+
+	const langOptions: { label: string; code: LangCode }[] = [
+		{ label: "English", code: "en_us" },
+		{ label: "简体中文", code: "zh_cn" },
+		{ label: "繁體中文", code: "zh_hk" },
+	];
 
 	const modeOptions = [
 		{
-			label: "Fastest",
+			label: I18n.get("app.floatingsearchbar.mode.fastest"),
 			mode: RoutingMode.FastestNormal,
 			icon: <ZapIcon className="w-4 h-4 text-blue-600"/>,
 		},
 		{
-			label: "Popular",
+			label: I18n.get("app.floatingsearchbar.mode.popular"),
 			mode: RoutingMode.MostPopular,
 			icon: <UsersIcon className="w-4 h-4 text-blue-600"/>,
 		},
 		{
-			label: "Accessible",
+			label: I18n.get("app.floatingsearchbar.mode.accessible"),
 			mode: RoutingMode.Accessible,
 			icon: <AccessibilityIcon className="w-4 h-4 text-blue-600"/>,
 		},
 		{
-			label: "Indoor",
+			label: I18n.get("app.floatingsearchbar.mode.indoor"),
 			mode: RoutingMode.IndoorOnly,
 			icon: <DoorOpenIcon className="w-4 h-4 text-blue-600"/>,
 		},
 	];
 
-	const selectedModeLabel = modeOptions.find(option => option.mode === selectedMode)?.label || "Fastest";
+	const selectedModeLabel = modeOptions.find(option => option.mode === selectedMode)?.label || I18n.get("app.floatingsearchbar.mode.fastest");
 
 	const handleGeneratePath = useCallback(() => {
 		if (start === null || end === null) return;
@@ -59,7 +69,46 @@ export default function FloatingSearchBar({navigator, onGeneratePath, hasResult,
 					src="/logo.svg"
 					alt="HKU | My Go"
 				/>
-				<div className="flex flex-row items-center gap-2">
+				<div className="flex flex-row items-center gap-2 relative">
+					<div className="relative">
+						<button
+							type="button"
+							className="h-8 px-2 flex items-center justify-center gap-1.5 rounded-lg border border-transparent hover:bg-gray-100 transition-colors"
+							onClick={() => setShouldShowLangOptions(!shouldShowLangOptions)}
+						>
+							<span className="text-sm font-medium text-gray-700">
+								{lang === 'en_us' ? 'EN' : lang === 'zh_cn' ? '简' : '繁'}
+							</span>
+							<ChevronDownIcon className="w-3.5 h-3.5 text-gray-500" />
+						</button>
+
+						{shouldShowLangOptions && (
+							<>
+								<div 
+									className="fixed inset-0 z-40" 
+									onClick={() => setShouldShowLangOptions(false)}
+								/>
+								<div className="absolute right-0 top-full mt-1.5 w-32 bg-white rounded-xl shadow-lg border border-gray-100 p-1.5 z-50 flex flex-col gap-0.5">
+									{langOptions.map((option) => (
+										<button
+											key={option.code}
+											className={`flex items-center w-full px-3 py-2 text-sm rounded-lg transition-colors ${
+												lang === option.code
+													? "bg-blue-50 text-blue-700 font-medium"
+													: "text-gray-700 hover:bg-gray-50"
+											}`}
+											onClick={() => {
+												setLang(option.code);
+												setShouldShowLangOptions(false);
+											}}
+										>
+											{option.label}
+										</button>
+									))}
+								</div>
+							</>
+						)}
+					</div>
 					<button
 						type="button"
 						className="flex flex-row items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-2 shadow-sm transition-all duration-200 hover:bg-gray-50"
@@ -68,7 +117,7 @@ export default function FloatingSearchBar({navigator, onGeneratePath, hasResult,
 						<div className={`w-9 h-5 rounded-full p-0.5 transition-all duration-300 ${isPeakHours ? 'bg-blue-500' : 'bg-gray-200'}`}>
 							<div className={`w-4 h-4 rounded-full bg-white shadow-sm transition-all duration-300 ${isPeakHours ? 'translate-x-4' : 'translate-x-0'}`}/>
 						</div>
-						<p className="text-sm text-gray-600 whitespace-nowrap">Peak Hours</p>
+						<p className="text-sm text-gray-600 whitespace-nowrap">{I18n.get("app.floatingsearchbar.peak_hour")}</p>
 					</button>
 					<div className="relative">
 						<Button
@@ -76,7 +125,7 @@ export default function FloatingSearchBar({navigator, onGeneratePath, hasResult,
 							className="min-w-11 lg:w-auto"
 							onClick={() => setShouldShowModeOptions(old => !old)}
 						>
-							<p className="text-gray-600 dark:text-gray-400">Mode</p>
+							<p className="text-gray-600 dark:text-gray-400">{I18n.get("app.floatingsearchbar.mode")}</p>
 							<p className="text-gray-400 text-xs">{selectedModeLabel}</p>
 							<ChevronDownIcon className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${shouldShowModeOptions ? 'rotate-180' : 'rotate-0'}`}/>
 						</Button>
@@ -112,11 +161,11 @@ export default function FloatingSearchBar({navigator, onGeneratePath, hasResult,
 				</div>
 			</div>
 			<div className="flex flex-col gap-4 items-start justify-start w-full">
-				<SearchInput label="Start" onSelect={setStart} />
-				<SearchInput label="End" onSelect={setEnd} />
+				<SearchInput label={I18n.get("app.floatingsearchbar.start")} onSelect={setStart} />
+				<SearchInput label={I18n.get("app.floatingsearchbar.end")} onSelect={setEnd} />
 			</div>
 			<Button className="w-full mt-2" isDisabled={start === null || end === null || start === end} onClick={handleGeneratePath}>
-				Generate Path!
+				{I18n.get("app.floatingsearchbar.generate_path")}
 			</Button>
 			{nodes.length > 0 && segments.length > 0 && (
 				<ActiveStepsDisplay nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} onChangeStep={onChangeStep} />

@@ -1,4 +1,33 @@
 {
+    "app.activestepsdisplay.step": "第",
+    "app.activestepsdisplay.of": "步，共",
+    "app.activestepsdisplay.start": "起点",
+    "app.activestepsdisplay.end": "终点",
+    "app.activestepsdisplay.previous": "上一步",
+    "app.activestepsdisplay.next": "下一步",
+    "app.activestepsdisplay.finish": "完成",
+
+    "app.floatingsearchbar.peak_hour": "高峰时段",
+    "app.floatingsearchbar.mode": "模式",
+    "app.floatingsearchbar.mode.fastest": "最快",
+    "app.floatingsearchbar.mode.popular": "热门",
+    "app.floatingsearchbar.mode.accessible": "无障碍",
+    "app.floatingsearchbar.mode.indoor": "室内",
+    "app.floatingsearchbar.start": "起点",
+    "app.floatingsearchbar.end": "终点",
+    "app.floatingsearchbar.generate_path": "生成路线！",
+
+    "app.routeerrorpanel.message": "抱歉，您指定的路线在数据库中不存在",
+
+    "app.routesteplist.estimated_time": "预计时间",
+    "app.routesteplist.distance": "距离",
+    "app.routesteplist.steps": "步数",
+    "app.routesteplist.start": "起点",
+    "app.routesteplist.end": "终点",
+    "app.routesteplist.step": "步骤",
+
+    "app.searchinput.placeholder": "搜索位置...",
+
     "map.nodes.001.name": "主图书馆大楼底层",
     "map.nodes.001.description": "作为主要过渡枢纽，连接大楼中心的休闲聚会、休息空间与专注安静及深度安静的学习区。",
     "map.nodes.002.name": "主图书馆大楼一层",
