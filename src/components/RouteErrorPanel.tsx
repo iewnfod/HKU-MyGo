@@ -1,4 +1,5 @@
-import {FaRoadCircleExclamation} from "react-icons/fa6";
+import { FaRoadCircleExclamation } from "react-icons/fa6";
+import { I18n } from "@/services/I18nService";
 
 export default function RouteErrorPanel() {
 	return (
@@ -8,7 +9,7 @@ export default function RouteErrorPanel() {
 					<FaRoadCircleExclamation className="w-8 h-8 text-gray-600"/>
 				</div>
 				<div className="max-w-md flex flex-col gap-1 text-base font-medium text-gray-800 leading-relaxed">
-					<p>Sorry, your specified route does not exist in our database</p>
+					<p>{I18n.get("app.routeerrorpanel.message")}</p>
 					<p>( ╥﹏╥)</p>
 				</div>
 			</div>

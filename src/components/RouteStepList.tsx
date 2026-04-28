@@ -1,7 +1,8 @@
-import type {MapNode, MapPath} from "@/types/map.ts";
-import {useEffect, useRef, useState} from "react";
-import {FaMapPin} from "react-icons/fa6";
-import {TbElevator, TbEscalator, TbRoad, TbStairs} from "react-icons/tb";
+import type { MapNode, MapPath } from "@/types/map.ts";
+import { useEffect, useRef, useState } from "react";
+import { FaMapPin } from "react-icons/fa6";
+import { TbElevator, TbEscalator, TbRoad, TbStairs } from "react-icons/tb";
+import { I18n } from "@/services/I18nService";
 
 export default function RouteStepList({
 	totalTime,
@@ -76,7 +77,7 @@ export default function RouteStepList({
 		timelineItems.push({
 			type: "node",
 			node: node,
-			label: index === 0 ? "Start" : index === nodes.length - 1 ? "End" : "",
+			label: index === 0 ? I18n.get("app.routesteplist.start") : index === nodes.length - 1 ? I18n.get("app.routesteplist.end") : "",
 		});
 		const segment = segments[index];
 		if (segment) {
@@ -91,15 +92,15 @@ export default function RouteStepList({
 		<div className="w-full h-full min-h-0 mt-4 rounded-2xl bg-white/95 shadow-sm border border-gray-200 overflow-hidden max-h-full flex flex-col">
 			<div className="grid grid-cols-3 p-4 bg-gray-50/80 border-b border-gray-100">
 				<div className="flex flex-col pr-4">
-					<p className="text-xs font-medium text-gray-400">Estimated time</p>
+					<p className="text-xs font-medium text-gray-400">{I18n.get("app.routesteplist.estimated_time")}</p>
 					<p className="text-xl font-semibold text-gray-950">{formatTime(totalTime)}</p>
 				</div>
 				<div className="flex flex-col border-l border-gray-200 px-4">
-					<p className="text-xs font-medium text-gray-400">Distance</p>
+					<p className="text-xs font-medium text-gray-400">{I18n.get("app.routesteplist.distance")}</p>
 					<p className="text-base font-semibold text-gray-900">{totalDistance}m</p>
 				</div>
 				<div className="flex flex-col border-l border-gray-200 pl-4">
-					<p className="text-xs font-medium text-gray-400">Steps</p>
+					<p className="text-xs font-medium text-gray-400">{I18n.get("app.routesteplist.steps")}</p>
 					<p className="text-base font-semibold text-gray-900">{segments.length}</p>
 				</div>
 			</div>
@@ -139,7 +140,7 @@ export default function RouteStepList({
 									</div>
 									{item.type === "node" ? (
 										<div className="min-h-14 flex flex-row items-start gap-2 grow min-w-0 pt-1 pb-3">
-											<p className="text-base font-semibold text-gray-950 leading-snug">{item.node.name}</p>
+											<p className="text-base font-semibold text-gray-950 leading-snug">{I18n.get(`map.nodes.${item.node.uid}.name`, item.node.name)}</p>
 											{item.label && (
 												<p className="h-5 shrink-0 rounded-full bg-gray-100 px-2 text-xs font-medium leading-5 text-gray-500">
 													{item.label}
@@ -151,11 +152,13 @@ export default function RouteStepList({
 											<div className="flex flex-row justify-between items-start gap-4">
 												<div className="flex flex-col gap-1 min-w-0">
 													<p className="text-base font-semibold text-gray-950 leading-snug">
-														{item.segment.name || `Step ${index + 1}`}
+														{item.segment.name ? I18n.get(`map.paths.${item.segment.uid}.name`, item.segment.name) : `${I18n.get("app.routesteplist.step")} ${index + 1}`}
 													</p>
-													<p className="text-xs text-gray-500 leading-relaxed invisible select-none">
-														{item.segment.description || `${item.segment.fromNodeUid} to ${item.segment.toNodeUid}`}
-													</p>
+													{item.segment.description && (
+														<p className="text-xs text-gray-500 leading-relaxed invisible select-none">
+															{I18n.get(`map.paths.${item.segment.uid}.description`, item.segment.description)}
+														</p>
+													)}
 												</div>
 												<div className="flex flex-col items-end shrink-0">
 													<p className="text-sm font-semibold text-gray-950">{formatTime(item.segment.expectPassTime)}</p>

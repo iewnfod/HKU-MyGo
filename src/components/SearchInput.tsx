@@ -1,11 +1,13 @@
-import {Button, Card, InputGroup, Label, Separator, TextField} from "@heroui/react";
-import {SearchIcon, XIcon} from "lucide-react";
-import {type ChangeEvent, useMemo, useState} from "react";
-import type {MapNode} from "@/types/map.ts";
+import { Button, Card, InputGroup, Label, Separator, TextField } from "@heroui/react";
+import { SearchIcon, XIcon } from "lucide-react";
+import { useMemo, useState } from "react";
+import type { ChangeEvent } from "react";
+import type { MapNode } from "@/types/map.ts";
 import { searchLocation } from "@/services/NodeSearchingService";
+import { I18n } from "@/services/I18nService";
 
 export default function SearchInput({
-	placeholder = "Search Location...",
+	placeholder,
 	label,
 	onSelect,
 } : {
@@ -13,6 +15,7 @@ export default function SearchInput({
 	label: string;
 	onSelect?: (node: MapNode | null) => void;
 }) {
+	const resolvedPlaceholder = placeholder ?? I18n.get("app.searchinput.placeholder");
 	const [options, setOptions] = useState<MapNode[]>([]);
 	const shouldShowOptions = useMemo(() => options.length > 0, [options]);
 	const [selectedOption, setSelectedOption] = useState<MapNode | null>(null);
@@ -45,10 +48,12 @@ export default function SearchInput({
 					<Card.Content>
 						<div className="flex flex-row justify-between items-center w-full">
 							<div className="flex flex-col items-start grow w-[70%]">
-								<p>{selectedOption.name}</p>
-								<p className="text-xs text-gray-500 max-w-[90%] overflow-hidden text-ellipsis whitespace-nowrap">
-									{selectedOption.description}
-								</p>
+								<p>{selectedOption.name ? I18n.get(`map.nodes.${selectedOption.uid}.name`, selectedOption.name) : ""}</p>
+								{selectedOption.description && (
+									<p className="text-xs text-gray-500 max-w-[90%] overflow-hidden text-ellipsis whitespace-nowrap">
+										{I18n.get(`map.nodes.${selectedOption.uid}.description`, selectedOption.description)}
+									</p>
+								)}
 							</div>
 							<Button isIconOnly variant="tertiary" size="sm" onClick={clearSelectOption}>
 								<XIcon />
@@ -69,7 +74,7 @@ export default function SearchInput({
 						<InputGroup.Input
 							onChange={handleSearchChange}
 							className="w-full grow"
-							placeholder={placeholder}
+							placeholder={resolvedPlaceholder}
 							value={text}
 						/>
 						<InputGroup.Suffix>
@@ -95,10 +100,12 @@ export default function SearchInput({
 								>
 									<Card.Content>
 										<div className="flex flex-col w-full gap-1">
-											<p className="text-sm">{option.name}</p>
-											<p className="text-xs text-gray-500 max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
-												{option.description}
-											</p>
+											<p className="text-sm">{option.name ? I18n.get(`map.nodes.${option.uid}.name`, option.name) : ""}</p>
+											{option.description && (
+												<p className="text-xs text-gray-500 max-w-full overflow-hidden text-ellipsis whitespace-nowrap">
+													{I18n.get(`map.nodes.${option.uid}.description`, option.description)}
+												</p>
+											)}
 										</div>
 									</Card.Content>
 								</Card>

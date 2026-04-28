@@ -1,4 +1,5 @@
 import type { MapNode } from "../types/map.ts"
+import { I18n } from "./I18nService.ts";
 import { MapData } from "./MapDataService.ts";
 
 function getFirstLetters(str: string): string {
@@ -12,7 +13,7 @@ function getFirstLetters(str: string): string {
 function canMatch(node: MapNode, query: string): boolean {
     const name = node.name.toLowerCase();
     return (
-        name.includes(query) ||
+        I18n.get(`map.nodes.${node.uid}.name`, name).includes(query) ||
         getFirstLetters(name).includes(query) ||
         node.aliases.some(alias => alias.toLowerCase().includes(query))
     );

@@ -1,4 +1,33 @@
 {
+    "app.activestepsdisplay.step": "第",
+    "app.activestepsdisplay.of": "步，共",
+    "app.activestepsdisplay.start": "起點",
+    "app.activestepsdisplay.end": "終點",
+    "app.activestepsdisplay.previous": "上一步",
+    "app.activestepsdisplay.next": "下一步",
+    "app.activestepsdisplay.finish": "完成",
+
+    "app.floatingsearchbar.peak_hour": "高峰時段",
+    "app.floatingsearchbar.mode": "模式",
+    "app.floatingsearchbar.mode.fastest": "最快",
+    "app.floatingsearchbar.mode.popular": "熱門",
+    "app.floatingsearchbar.mode.accessible": "無障礙",
+    "app.floatingsearchbar.mode.indoor": "室內",
+    "app.floatingsearchbar.start": "起點",
+    "app.floatingsearchbar.end": "終點",
+    "app.floatingsearchbar.generate_path": "生成路線！",
+
+    "app.routeerrorpanel.message": "抱歉，您指定的路線在數據庫中不存在",
+
+    "app.routesteplist.estimated_time": "預計時間",
+    "app.routesteplist.distance": "距離",
+    "app.routesteplist.steps": "步數",
+    "app.routesteplist.start": "起點",
+    "app.routesteplist.end": "終點",
+    "app.routesteplist.step": "步驟",
+
+    "app.searchinput.placeholder": "搜索位置...",
+
     "map.nodes.001.name": "主圖書館大樓底層",
     "map.nodes.001.description": "作為主要過渡樞紐，連接大樓中心的休閒聚會、休息空間與專注安靜及深度安靜的學習區。",
     "map.nodes.002.name": "主圖書館大樓一樓",

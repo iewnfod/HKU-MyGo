@@ -1,11 +1,11 @@
 import FloatingSearchBar from "@/components/FloatingSearchBar.tsx";
 import { MapData } from "./services/MapDataService";
-import {Navigator, RoutingMode} from "@/services/NavigatorService";
-import {sanitizeMapData} from "@/services/DataSanitizerService";
+import { Navigator, RoutingMode } from "@/services/NavigatorService";
+import { sanitizeMapData } from "@/services/DataSanitizerService";
 import nodeJson from "@/../data/nodes.json";
 import pathJson from "@/../data/paths.json";
-import {useMemo, useState} from "react";
-import type {MapNode, MapPath} from "@/types/map.ts";
+import { useMemo, useState } from "react";
+import type { MapNode, MapPath } from "@/types/map.ts";
 import RouteStepList from "@/components/RouteStepList.tsx";
 import RouteErrorPanel from "@/components/RouteErrorPanel.tsx";
 
@@ -50,7 +50,7 @@ function App() {
 
 	return (
 		<div className="w-screen h-screen overflow-hidden flex flex-col justify-start lg:flex-row lg:justify-between items-center p-4 min-w-96 overflow-y-auto">
-			<FloatingSearchBar navigator={navigator} onGeneratePath={handleGeneratePath} hasResult={hasPanel} nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} onChangeStep={setActiveStepIndex}/>
+			<FloatingSearchBar onGeneratePath={handleGeneratePath} hasResult={hasPanel} nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} onChangeStep={setActiveStepIndex}/>
 			<div className={`w-full grow lg:max-w-[55vw] p-4 pt-0 h-auto max-h-full lg:max-h-screen overflow-hidden ${hasPanel ? 'h-full' : ''}`}>
 				{hasResult && (
 					<RouteStepList totalTime={totalTime} totalDistance={totalDistance} nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} />
