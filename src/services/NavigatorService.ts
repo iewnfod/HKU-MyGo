@@ -1,4 +1,5 @@
 import type { MapNode, MapPath } from "../types/map.ts"
+import { MapData } from "./MapDataService.ts";
 
 export const RoutingMode = {
     FastestNormal: "FastestNormal",  // fastest time during normal hours
@@ -19,14 +20,14 @@ interface RouteResult {
 
 // https://oi-wiki.org/graph/shortest-path/#bellmanford-%E7%AE%97%E6%B3%95
 export class Navigator {
-    private nodes: Map<string, MapNode>;
-    private adjacencyList: Map<string, MapPath[]>;
+    private static nodes: Map<string, MapNode>;
+    private static adjacencyList: Map<string, MapPath[]>;
 
-    constructor(p : {nodes: MapNode[], paths: MapPath[]}) {
-        this.nodes = new Map(p.nodes.map(n => [n.uid, n]));
+    public static reload() {
+        this.nodes = new Map(MapData.getNodes().map(n => [n.uid, n]));
         this.adjacencyList = new Map();
         
-        p.paths.forEach(path => {
+        MapData.getPaths().forEach(path => {
             if (!this.adjacencyList.has(path.fromNodeUid)) {
                 this.adjacencyList.set(path.fromNodeUid, []);
             }
@@ -34,7 +35,7 @@ export class Navigator {
         });
     }
 
-    private calculateWeight(path: MapPath, mode: RoutingMode): number {
+    private static calculateWeight(path: MapPath, mode: RoutingMode): number {
         switch (mode) {
             case RoutingMode.FastestNormal:
                 return path.expectPassTime;
@@ -58,19 +59,7 @@ export class Navigator {
         }
     }
 
-	public searchLocation(text: string): MapNode[] {
-		text = text.toLowerCase();
-		const possibleNodes: MapNode[] = [];
-		this.nodes.forEach(node => {
-			const aliases = node.aliases.map(t => t.toLowerCase());
-			if (node.name.toLowerCase().includes(text) || aliases.includes(text)) {
-				possibleNodes.push(node);
-			}
-		});
-		return possibleNodes;
-	}
-
-    public findAvailablePath(startUid: string, endUid: string, mode: RoutingMode): RouteResult | null {
+    public static findAvailablePath(startUid: string, endUid: string, mode: RoutingMode): RouteResult | null {
         const distances = new Map<string, number>();
         const parentPath = new Map<string, { nodeUid: string, path: MapPath }>();
         const inQueue = new Set<string>();

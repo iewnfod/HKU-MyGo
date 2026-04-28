@@ -1,16 +1,14 @@
-import {Navigator} from "@/services/NavigatorService";
 import {Button, Card, InputGroup, Label, Separator, TextField} from "@heroui/react";
 import {SearchIcon, XIcon} from "lucide-react";
 import {type ChangeEvent, useMemo, useState} from "react";
 import type {MapNode} from "@/types/map.ts";
+import { searchLocation } from "@/services/NodeSearchingService";
 
 export default function SearchInput({
-	navigator,
 	placeholder = "Search Location...",
 	label,
 	onSelect,
 } : {
-	navigator: Navigator;
 	placeholder?: string;
 	label: string;
 	onSelect?: (node: MapNode | null) => void;
@@ -23,7 +21,7 @@ export default function SearchInput({
 	const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setText(event.target.value);
 		if (event.target.value !== "") {
-			setOptions(navigator.searchLocation(event.target.value));
+			setOptions(searchLocation(event.target.value));
 		} else {
 			setOptions([]);
 		}

@@ -112,8 +112,8 @@ export default function FloatingSearchBar({navigator, onGeneratePath, hasResult,
 				</div>
 			</div>
 			<div className="flex flex-col gap-4 items-start justify-start w-full">
-				<SearchInput navigator={navigator} label="Start" onSelect={setStart} />
-				<SearchInput navigator={navigator} label="End" onSelect={setEnd} />
+				<SearchInput label="Start" onSelect={setStart} />
+				<SearchInput label="End" onSelect={setEnd} />
 			</div>
 			<Button className="w-full mt-2" isDisabled={start === null || end === null || start === end} onClick={handleGeneratePath}>
 				Generate Path!

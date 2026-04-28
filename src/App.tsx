@@ -1,4 +1,5 @@
 import FloatingSearchBar from "@/components/FloatingSearchBar.tsx";
+import { MapData } from "./services/MapDataService";
 import {Navigator, RoutingMode} from "@/services/NavigatorService";
 import {sanitizeMapData} from "@/services/DataSanitizerService";
 import nodeJson from "@/../data/nodes.json";
@@ -9,7 +10,9 @@ import RouteStepList from "@/components/RouteStepList.tsx";
 import RouteErrorPanel from "@/components/RouteErrorPanel.tsx";
 
 function App() {
-	const navigator = new Navigator(sanitizeMapData(nodeJson.nodes, pathJson.paths));
+	MapData.reload(sanitizeMapData(nodeJson.nodes, pathJson.paths));
+	Navigator.reload();
+
 	const [nodes, setNodes] = useState<MapNode[]>([]);
 	const [segments, setSegments] = useState<MapPath[]>([]);
 	const [totalTime, setTotalTime] = useState<number>(0);
@@ -26,7 +29,7 @@ function App() {
 		setTotalDistance(0);
 		setActiveStepIndex(0);
 		setHasError(false);
-		const routeResult = navigator.findAvailablePath(start.uid, end.uid, mode);
+		const routeResult = Navigator.findAvailablePath(start.uid, end.uid, mode);
 		console.log(routeResult);
 		if (!routeResult) {
 			setHasError(true);
