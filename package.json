@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "locales:update": "node src/tools/update-locales.js",
+    "locales:validate": "node src/validator/locales-validator.js"
   },
   "dependencies": {
     "@heroui/react": "^3.0.2",
