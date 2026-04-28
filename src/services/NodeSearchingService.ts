@@ -1,0 +1,24 @@
+import type { MapNode } from "../types/map.ts"
+import { MapData } from "./MapDataService.ts";
+
+function getFirstLetters(str: string): string {
+    return str
+        .split(/\s+/)
+        .map(word => word.charAt(0))
+        .join("")
+        .toLowerCase();
+}
+
+function canMatch(node: MapNode, query: string): boolean {
+    const name = node.name.toLowerCase();
+    return (
+        name.includes(query) ||
+        getFirstLetters(name).includes(query) ||
+        node.aliases.some(alias => alias.toLowerCase().includes(query))
+    );
+}
+
+export function searchLocation(text: string): MapNode[] {
+    text = text.toLowerCase();
+    return MapData.getNodes().filter(node => canMatch(node, text));
+}
