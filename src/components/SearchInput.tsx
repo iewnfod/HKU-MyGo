@@ -1,4 +1,4 @@
-import {Navigator} from "@/navigator/NavCore.ts";
+import {Navigator} from "@/services/NavigatorService";
 import {Button, Card, InputGroup, Label, Separator, TextField} from "@heroui/react";
 import {SearchIcon, XIcon} from "lucide-react";
 import {type ChangeEvent, useMemo, useState} from "react";
