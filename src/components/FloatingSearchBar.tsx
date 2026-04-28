@@ -1,6 +1,6 @@
 import {Card, Button} from "@heroui/react";
 import {AccessibilityIcon, ChevronDownIcon, DoorOpenIcon, UsersIcon, ZapIcon} from "lucide-react";
-import {Navigator, RoutingMode} from "@/navigator/NavCore.ts";
+import {Navigator, RoutingMode} from "@/services/NavigatorService";
 import SearchInput from "@/components/SearchInput.tsx";
 import ActiveStepsDisplay from "@/components/ActiveStepsDisplay.tsx";
 import {useCallback, useState} from "react";
@@ -60,7 +60,6 @@ export default function FloatingSearchBar({navigator, onGeneratePath, hasResult,
 					alt="HKU | My Go"
 				/>
 				<div className="flex flex-row items-center gap-2">
-					{ selectedMode == "FastestBusy" || selectedMode == "FastestNormal" && (
 					<button
 						type="button"
 						className="flex flex-row items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-2 shadow-sm transition-all duration-200 hover:bg-gray-50"
@@ -71,7 +70,6 @@ export default function FloatingSearchBar({navigator, onGeneratePath, hasResult,
 						</div>
 						<p className="text-sm text-gray-600 whitespace-nowrap">Peak Hours</p>
 					</button>
-					)}
 					<div className="relative">
 						<Button
 							variant="outline"

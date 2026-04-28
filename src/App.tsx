@@ -1,6 +1,6 @@
 import FloatingSearchBar from "@/components/FloatingSearchBar.tsx";
-import {Navigator, RoutingMode} from "@/navigator/NavCore.ts";
-import {sanitizeMapData} from "@/navigator/DataSanitizer.ts";
+import {Navigator, RoutingMode} from "@/services/NavigatorService";
+import {sanitizeMapData} from "@/services/DataSanitizerService";
 import nodeJson from "@/../data/nodes.json";
 import pathJson from "@/../data/paths.json";
 import {useMemo, useState} from "react";
@@ -26,19 +26,19 @@ function App() {
 		setTotalDistance(0);
 		setActiveStepIndex(0);
 		setHasError(false);
-		const routeResult = navigator.findPath(start.uid, end.uid, mode);
+		const routeResult = navigator.findAvailablePath(start.uid, end.uid, mode);
 		console.log(routeResult);
 		if (!routeResult) {
 			setHasError(true);
 			return;
 		}
-		const pathSegments = navigator.findPathSegments(routeResult.path, mode);
+		const pathSegments = routeResult.edges;
 		console.log(pathSegments);
 		if (!pathSegments) {
 			setHasError(true);
 			return;
 		}
-		setNodes(routeResult.path);
+		setNodes(routeResult.nodes);
 		setSegments(pathSegments);
 		setTotalTime(routeResult.totalTime);
 		setTotalDistance(routeResult.totalDistance);

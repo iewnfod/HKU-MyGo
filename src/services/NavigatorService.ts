@@ -11,7 +11,8 @@ export const RoutingMode = {
 export type RoutingMode = typeof RoutingMode[keyof typeof RoutingMode];
 
 interface RouteResult {
-    path: MapNode[];
+    nodes: MapNode[];
+    edges: MapPath[];
     totalTime: number;
     totalDistance: number;
 }
@@ -69,22 +70,7 @@ export class Navigator {
 		return possibleNodes;
 	}
 
-	public findPathSegments(path: MapNode[], mode: RoutingMode): MapPath[] | null {
-		const segments: MapPath[] = [];
-		for (let i = 0; i < path.length - 1; i++) {
-			const fromNode = path[i];
-			const toNode = path[i + 1];
-			const possiblePaths = this.adjacencyList.get(fromNode.uid) || [];
-			const segment = possiblePaths
-				.filter(path => path.toNodeUid === toNode.uid && this.calculateWeight(path, mode) !== Infinity)
-				.sort((a, b) => this.calculateWeight(a, mode) - this.calculateWeight(b, mode))[0];
-			if (!segment) return null;
-			segments.push(segment);
-		}
-		return segments;
-	}
-
-    public findPath(startUid: string, endUid: string, mode: RoutingMode): RouteResult | null {
+    public findAvailablePath(startUid: string, endUid: string, mode: RoutingMode): RouteResult | null {
         const distances = new Map<string, number>();
         const parentPath = new Map<string, { nodeUid: string, path: MapPath }>();
         const inQueue = new Set<string>();
@@ -122,6 +108,7 @@ export class Navigator {
         if (distances.get(endUid) === Infinity) return null;
 
         const pathNodes: MapNode[] = [];
+        const pathEdges: MapPath[] = [];
         let totalDist = 0;
         let totalTime = 0;
         let curr = endUid;
@@ -130,6 +117,7 @@ export class Navigator {
             const node = this.nodes.get(curr)!;
             const edge = parentPath.get(curr)!;
             pathNodes.unshift(node);
+            pathEdges.unshift(edge.path);
             totalDist += edge.path.distance;
             totalTime += (mode === RoutingMode.FastestBusy ? 
                           edge.path.expectPassTime + (edge.path.penalty || 0) : 
@@ -139,7 +127,8 @@ export class Navigator {
         pathNodes.unshift(this.nodes.get(startUid)!);
 
         return {
-            path: pathNodes,
+            nodes: pathNodes,
+            edges: pathEdges,
             totalTime: totalTime,
             totalDistance: totalDist
         };
