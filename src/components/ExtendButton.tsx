@@ -1,10 +1,10 @@
-import {Navigator} from "@/services/NavigatorService";
-import {MapData} from "@/services/MapDataService.ts";
-import {sanitizeMapData} from "@/services/DataSanitizerService.ts";
-import {Button, Label, Modal, Separator} from "@heroui/react";
-import {I18n} from "@/services/I18nService.ts";
-import {FileUpIcon, InfoIcon} from "lucide-react";
-import {useCallback, useEffect, useState} from "react";
+import { Navigator } from "@/services/NavigatorService";
+import { MapData } from "@/services/MapDataService.ts";
+import { sanitizeMapData } from "@/services/DataSanitizerService.ts";
+import { Button, Label, Modal, Separator } from "@heroui/react";
+import { I18n } from "@/services/I18nService.ts";
+import { FileUpIcon, InfoIcon } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 
 function FileSelectButton({
 	type,

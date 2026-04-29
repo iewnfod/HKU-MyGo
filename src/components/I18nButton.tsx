@@ -1,7 +1,7 @@
-import {ChevronDownIcon} from "lucide-react";
-import {useState} from "react";
-import {useI18n} from "@/hooks/useI18n.ts";
-import type {LangCode} from "@/services/I18nService.ts";
+import { ChevronDownIcon } from "lucide-react";
+import { useState } from "react";
+import { useI18n } from "@/hooks/useI18n.ts";
+import type { LangCode } from "@/services/I18nService.ts";
 
 export default function I18nButton() {
 	const [shouldShowLangOptions, setShouldShowLangOptions] = useState<boolean>(false);

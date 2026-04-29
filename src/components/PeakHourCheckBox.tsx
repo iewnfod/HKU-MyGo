@@ -1,6 +1,6 @@
-import {I18n} from "@/services/I18nService.ts";
-import {useCallback, useState} from "react";
-import {Button} from "@heroui/react";
+import { I18n } from "@/services/I18nService.ts";
+import { useCallback, useState } from "react";
+import { Button } from "@heroui/react";
 
 export default function PeakHourCheckBox({
 	onChange,

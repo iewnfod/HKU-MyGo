@@ -1,7 +1,7 @@
-import type {MapNode, MapPath} from "@/types/map.ts";
-import {useEffect, useState} from "react";
-import {FaMapPin} from "react-icons/fa6";
-import {TbElevator, TbEscalator, TbRoad, TbStairs} from "react-icons/tb";
+import type { MapNode, MapPath } from "@/types/map.ts";
+import { useEffect, useState } from "react";
+import { FaMapPin } from "react-icons/fa6";
+import { TbElevator, TbEscalator, TbRoad, TbStairs } from "react-icons/tb";
 import { I18n } from "@/services/I18nService";
 
 export default function ActiveStepsDisplay({
