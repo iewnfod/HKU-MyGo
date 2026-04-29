@@ -1,5 +1,15 @@
 {
-    "app.activestepsdisplay.step": "第",
+	"app.extendbutton.extend": "拓展",
+	"app.extendbutton.desc": "添加自定义节点与路径",
+	"app.extendbutton.nodefile": "节点文件",
+	"app.extendbutton.nodes": "节点",
+	"app.extendbutton.pathfile": "路径文件",
+	"app.extendbutton.paths": "路径",
+	"app.extendbutton.selectfile": "选择文件",
+	"app.extendbutton.load": "加载自定义内容",
+	"app.extendbutton.cancel": "取消",
+
+	"app.activestepsdisplay.step": "第",
     "app.activestepsdisplay.of": "步，共",
     "app.activestepsdisplay.start": "起點",
     "app.activestepsdisplay.end": "終點",

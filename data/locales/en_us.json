@@ -1,5 +1,15 @@
 {
-    "app.activestepsdisplay.step": "Step",
+	"app.extendbutton.extend": "Extend",
+	"app.extendbutton.desc": "Add nodes and paths by yourself",
+	"app.extendbutton.nodefile": "Node File",
+	"app.extendbutton.nodes": "nodes",
+	"app.extendbutton.pathfile": "Path File",
+	"app.extendbutton.paths": "paths",
+	"app.extendbutton.selectfile": "Select File",
+	"app.extendbutton.load": "Load Customized Content",
+	"app.extendbutton.cancel": "Cancel",
+
+	"app.activestepsdisplay.step": "Step",
     "app.activestepsdisplay.of": "of",
     "app.activestepsdisplay.start": "Start",
     "app.activestepsdisplay.end": "End",
