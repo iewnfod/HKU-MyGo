@@ -22,21 +22,23 @@ function App() {
 	const hasResult = useMemo(() => segments.length > 0, [segments]);
 	const hasPanel = useMemo(() => hasResult || hasError, [hasResult, hasError]);
 
-	const handleGeneratePath = (start: MapNode, end: MapNode, mode: RoutingMode) => {
+	const handleClearResults = () => {
 		setNodes([]);
 		setSegments([]);
 		setTotalTime(0);
 		setTotalDistance(0);
 		setActiveStepIndex(0);
 		setHasError(false);
+	}
+
+	const handleGeneratePath = (start: MapNode, end: MapNode, mode: RoutingMode) => {
+		handleClearResults();
 		const routeResult = Navigator.findAvailablePath(start.uid, end.uid, mode);
-		console.log(routeResult);
 		if (!routeResult) {
 			setHasError(true);
 			return;
 		}
 		const pathSegments = routeResult.edges;
-		console.log(pathSegments);
 		if (!pathSegments) {
 			setHasError(true);
 			return;
@@ -50,7 +52,15 @@ function App() {
 
 	return (
 		<div className="w-screen h-screen overflow-hidden flex flex-col justify-start lg:flex-row lg:justify-between items-center p-4 min-w-96 overflow-y-auto">
-			<FloatingSearchBar onGeneratePath={handleGeneratePath} hasResult={hasPanel} nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} onChangeStep={setActiveStepIndex}/>
+			<FloatingSearchBar
+				onGeneratePath={handleGeneratePath}
+				hasResult={hasPanel}
+				nodes={nodes}
+				segments={segments}
+				activeStepIndex={activeStepIndex}
+				onChangeStep={setActiveStepIndex}
+				clearResults={handleClearResults}
+			/>
 			<div className={`w-full grow lg:max-w-[55vw] p-4 pt-0 h-auto max-h-full lg:max-h-screen overflow-hidden ${hasPanel ? 'h-full' : ''}`}>
 				{hasResult && (
 					<RouteStepList totalTime={totalTime} totalDistance={totalDistance} nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} />

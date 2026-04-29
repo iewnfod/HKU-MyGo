@@ -1,21 +1,28 @@
 import { Card, Button } from "@heroui/react";
-import { AccessibilityIcon, ChevronDownIcon, DoorOpenIcon, UsersIcon, ZapIcon } from "lucide-react";
+import {
+	AccessibilityIcon,
+	ChevronDownIcon,
+	DoorOpenIcon, MoveRightIcon,
+	UsersIcon, XIcon,
+	ZapIcon
+} from "lucide-react";
 import { RoutingMode } from "@/services/NavigatorService";
 import SearchInput from "@/components/SearchInput.tsx";
 import ActiveStepsDisplay from "@/components/ActiveStepsDisplay.tsx";
-import { useCallback, useState } from "react";
+import {Fragment, useCallback, useState} from "react";
 import type { MapNode, MapPath } from "@/types/map.ts";
 import { I18n } from "@/services/I18nService";
 import type { LangCode } from "@/services/I18nService";
 import { useI18n } from "@/hooks/useI18n";
 
-export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, segments, activeStepIndex, onChangeStep} : {
+export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, segments, activeStepIndex, onChangeStep, clearResults} : {
 	onGeneratePath: (start: MapNode, end: MapNode, mode: RoutingMode) => void;
 	hasResult: boolean;
 	nodes: MapNode[];
 	segments: MapPath[];
 	activeStepIndex: number;
 	onChangeStep: (index: number) => void;
+	clearResults: () => void;
 }) {
 	const [start, setStart] = useState<MapNode | null>(null);
 	const [end, setEnd] = useState<MapNode | null>(null);
@@ -24,6 +31,7 @@ export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, seg
 	const [shouldShowModeOptions, setShouldShowModeOptions] = useState<boolean>(false);
 	const [shouldShowLangOptions, setShouldShowLangOptions] = useState<boolean>(false);
 	const [lang, setLang] = useI18n();
+	const isLargeScreen = window.innerWidth >= 1024;
 
 	const langOptions: { label: string; code: LangCode }[] = [
 		{ label: "English", code: "en_us" },
@@ -62,8 +70,12 @@ export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, seg
 		onGeneratePath(start, end, mode);
 	}, [start, end, selectedMode, isPeakHours, onGeneratePath]);
 
+	const handleClear = useCallback(() => {
+		clearResults();
+	}, [clearResults]);
+
 	return (
-		<Card className={`flex flex-col justify-start items-center w-full min-w-24 ${hasResult ? '' : 'h-full'} lg:h-full lg:grow gap-4 min-h-90`} variant="transparent">
+		<Card className={`flex flex-col justify-start items-center w-full min-w-24 ${hasResult ? '' : 'h-full'} lg:h-full lg:grow gap-4 min-h-96`} variant="transparent">
 			<div className="flex flex-row justify-between items-center w-full">
 				<img
 					src="/logo.svg"
@@ -160,13 +172,29 @@ export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, seg
 					</div>
 				</div>
 			</div>
-			<div className="flex flex-col gap-4 items-start justify-start w-full">
-				<SearchInput label={I18n.get("app.floatingsearchbar.start")} onSelect={setStart} />
-				<SearchInput label={I18n.get("app.floatingsearchbar.end")} onSelect={setEnd} />
-			</div>
-			<Button className="w-full mt-2" isDisabled={start === null || end === null || start === end} onClick={handleGeneratePath}>
-				{I18n.get("app.floatingsearchbar.generate_path")}
-			</Button>
+			{hasResult && (
+				<div className="lg:hidden w-full flex flex-row justify-between items-center pl-2">
+					<div className="grow w-full flex flex-row justify-start items-center gap-4">
+						{start?.name}
+						<MoveRightIcon/>
+						{end?.name}
+					</div>
+					<Button isIconOnly variant="tertiary" size="sm" onClick={handleClear}>
+						<XIcon/>
+					</Button>
+				</div>
+			)}
+			{(!hasResult || isLargeScreen) && (
+				<Fragment>
+					<div className="flex flex-col gap-4 items-start justify-start w-full">
+						<SearchInput label={I18n.get("app.floatingsearchbar.start")} onSelect={setStart} />
+						<SearchInput label={I18n.get("app.floatingsearchbar.end")} onSelect={setEnd} />
+					</div>
+					<Button className="w-full mt-2 min-h-10 mb-2" isDisabled={start === null || end === null || start === end} onClick={handleGeneratePath}>
+						{I18n.get("app.floatingsearchbar.generate_path")}
+					</Button>
+				</Fragment>
+			)}
 			{nodes.length > 0 && segments.length > 0 && (
 				<ActiveStepsDisplay nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} onChangeStep={onChangeStep} />
 			)}
