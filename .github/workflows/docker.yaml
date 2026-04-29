@@ -24,6 +24,5 @@ jobs:
                 name: Build and push
                 uses: docker/build-push-action@v7
                 with:
-                    context: .
                     push: true
                     tags: iewnfod/hku-mygo:latest
