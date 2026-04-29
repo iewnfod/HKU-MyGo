@@ -4,8 +4,8 @@ FROM node:22-alpine
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files to the container
-COPY package.json package-lock.json ./
+# Copy the package.json and lock files to the container
+COPY package.json pnpm-lock.yaml ./
 
 # Install project dependencies
 RUN npm install
