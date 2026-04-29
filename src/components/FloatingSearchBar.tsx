@@ -1,12 +1,9 @@
 import { Card, Button } from "@heroui/react";
-import {
-	MoveRightIcon,
-	XIcon,
-} from "lucide-react";
+import { MoveRightIcon, XIcon } from "lucide-react";
 import { RoutingMode } from "@/services/NavigatorService";
 import SearchInput from "@/components/SearchInput.tsx";
 import ActiveStepsDisplay from "@/components/ActiveStepsDisplay.tsx";
-import {Fragment, useCallback, useState} from "react";
+import { Fragment, useCallback, useState } from "react";
 import type { MapNode, MapPath } from "@/types/map.ts";
 import { I18n } from "@/services/I18nService";
 import ExtendButton from "@/components/ExtendButton.tsx";
