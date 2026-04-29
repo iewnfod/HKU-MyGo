@@ -80,9 +80,9 @@ export default function ActiveStepsDisplay({
 		'opacity-100 translate-x-0 scale-100';
 
 	return (
-		<div className={`w-full overflow-hidden rounded-2xl border border-gray-200 bg-white/95 shadow-sm transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${isVisible ? 'max-h-[32rem] opacity-100 translate-y-0' : 'max-h-0 opacity-0 translate-y-2'}`}>
-			<div className="flex min-h-80 flex-col justify-between p-5">
-				<div className={`flex min-h-56 flex-col gap-5 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${contentAnimation}`}>
+		<div className={`w-full overflow-hidden rounded-2xl border border-gray-200 bg-white/95 shadow-sm transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${isVisible ? 'max-h-128 opacity-100 translate-y-0' : 'max-h-0 opacity-0 translate-y-2'}`}>
+			<div className="flex min-h-60 flex-col justify-between p-5">
+				<div className={`flex min-h-36 flex-col gap-5 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${contentAnimation}`}>
 					<div className="flex flex-row items-start gap-4">
 						<div className={`w-11 h-11 rounded-full flex justify-center items-center border ${isNodeStep ? 'bg-gray-50 border-gray-200' : 'bg-blue-50 border-blue-100'}`}>
 							{isNodeStep ? (
@@ -123,14 +123,14 @@ export default function ActiveStepsDisplay({
 				<div className="flex flex-row justify-between items-center gap-3 border-t border-gray-100 pt-4">
 					<button
 						type="button"
-						className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${activeStepIndex === 0 ? 'text-gray-300 cursor-default' : 'text-gray-600 hover:bg-gray-50 active:scale-95'}`}
+						className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${activeStepIndex === 0 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-50 active:scale-95 cursor-pointer'}`}
 						onClick={handlePrevious}
 					>
 						{I18n.get("app.activestepsdisplay.previous")}
 					</button>
 					<button
 						type="button"
-						className="rounded-full bg-blue-600 px-5 py-2 text-sm font-medium text-white shadow-sm shadow-blue-200 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-blue-700 active:scale-95"
+						className="rounded-full bg-blue-600 px-5 py-2 text-sm font-medium text-white shadow-sm shadow-blue-200 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-blue-700 active:scale-95 cursor-pointer"
 						onClick={handleNext}
 					>
 						{isLastStep ? I18n.get("app.activestepsdisplay.finish") : I18n.get("app.activestepsdisplay.next")}

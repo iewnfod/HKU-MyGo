@@ -106,7 +106,7 @@ export default function RouteStepList({
 			</div>
 
 			<div className="min-h-0 overflow-y-auto max-h-full grow scroll-smooth" ref={scrollViewRef}>
-				<div className="relative flex flex-col px-4 py-4" ref={containerRef}>
+				<div className="relative flex flex-col px-4 py-4 gap-2" ref={containerRef}>
 					<div
 						className="absolute left-4 right-4 z-0 rounded-2xl bg-blue-500/10 ring-1 ring-blue-300/70 backdrop-blur-sm transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] pointer-events-none"
 						style={{
