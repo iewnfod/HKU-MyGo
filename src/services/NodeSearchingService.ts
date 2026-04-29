@@ -13,7 +13,8 @@ function getFirstLetters(str: string): string {
 function canMatch(node: MapNode, query: string): boolean {
     const name = node.name.toLowerCase();
     return (
-        I18n.get(`map.nodes.${node.uid}.name`, name).includes(query) ||
+        name.includes(query) ||
+        I18n.get(`map.nodes.${node.uid}.name`).includes(query) ||
         getFirstLetters(name).includes(query) ||
         node.aliases.some(alias => alias.toLowerCase().includes(query))
     );
