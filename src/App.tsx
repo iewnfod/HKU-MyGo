@@ -4,15 +4,12 @@ import { Navigator, RoutingMode } from "@/services/NavigatorService";
 import { sanitizeMapData } from "@/services/DataSanitizerService";
 import nodeJson from "@/../data/nodes.json";
 import pathJson from "@/../data/paths.json";
-import { useMemo, useState } from "react";
+import {useEffect, useMemo, useState} from "react";
 import type { MapNode, MapPath } from "@/types/map.ts";
 import RouteStepList from "@/components/RouteStepList.tsx";
 import RouteErrorPanel from "@/components/RouteErrorPanel.tsx";
 
 function App() {
-	MapData.reload(sanitizeMapData(nodeJson.nodes, pathJson.paths));
-	Navigator.reload();
-
 	const [nodes, setNodes] = useState<MapNode[]>([]);
 	const [segments, setSegments] = useState<MapPath[]>([]);
 	const [totalTime, setTotalTime] = useState<number>(0);
@@ -21,6 +18,11 @@ function App() {
 	const [hasError, setHasError] = useState<boolean>(false);
 	const hasResult = useMemo(() => segments.length > 0, [segments]);
 	const hasPanel = useMemo(() => hasResult || hasError, [hasResult, hasError]);
+
+	useEffect(() => {
+		MapData.reload(sanitizeMapData(nodeJson.nodes, pathJson.paths));
+		Navigator.reload();
+	}, []);
 
 	const handleClearResults = () => {
 		setNodes([]);
