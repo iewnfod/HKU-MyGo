@@ -1,0 +1,113 @@
+Test Case No.,Function,Steps,Expected Result,Result,Fix
+TC001,Extend Map,"1.Click Extend
+2.Click Select File for Node File
+3.Upload Node File
+4.Click Select File for Path File
+5.Upload Path File
+6.Click Load Customized Content","1.Show window to upload files
+2.Open window to select file from computer
+3.Node File selected
+4.Open window to select file from computer
+5.Path File selected
+6.Nodes and paths successfully added",Pass,None
+TC002,Peak Hour,"1.Have the extension of HKU MTR Station ready
+2.Open Peak Hours
+3.Type su in search location for Start
+4.Select SU Restaurant
+5.Type mtr in search location for End
+6.Select HKU MTR Station
+7.Click Generate Path!","1.Successfully load extension of HKU MTR Station
+2.Peak Hours turned on showing blue colour
+3.SU Restaurant pop up
+4.SU Restaurant selected
+5.HKU MTR Station pop up
+6.HKU MTR Station selected
+7.Path generated and pass HKU MTR Exit C1","1.Pass
+2.Pass
+3.Pass
+4.Pass
+5.Pass
+6.Pass
+7.Error: Display time for individual path unchanged (penality not added)",Fixed
+TC003,Language Transition,"1.Type su in search location for Start
+2.Select SU Restaurant
+3.Type mtr in search location for End
+4.Select HKU MTR Station Exit C1
+5.Click Generate Path!
+6.Click EN
+7.Click 简体中文
+8.Click 简
+9.Click 繁體中文
+","1.SU Restaurant pop up
+2.SU Restaurant selected
+3.HKU MTR Station Exit C1 pop up
+4.HKU MTR Station Exit C1 selected
+5.Path generated and pass HKU MTR Exit C1
+6.Shows English, 简体中文 and 繁體中文
+7.Language change to Manarin
+8.Shows English, 简体中文 and 繁體中文
+9.Language change to Cantonese",Pass,None
+TC004,Mode Fastest,"1.Type HKU MTR Station Exit C1 for Start
+2.Select HKU MTR Station Exit C1
+3.Type gh in search location for End
+4.Select Graduate House
+5.Click Generate Path!","1.HKU MTR Station Exit C1 pop up
+2.HKU MTR Station Exit C1 selected
+3.Graduate House pop up
+4.Graduate House selected
+5.Path generated and pass Mountainside Road",Pass,None
+TC005,Mode Popular,"1.Change Mode to Popular
+2.Type HKU MTR Station Exit C1 for Start
+3.Select HKU MTR Station Exit C1
+4.Type gh in search location for End
+5.Select Graduate House
+6.Click Generate Path!","1.Mode change to Popular
+2.HKU MTR Station Exit C1 pop up
+3.HKU MTR Station Exit C1 selected
+4.Graduate House pop up
+5.Graduate House selected
+6.Path generated and pass Run Run Shaw Building and Construction Site",Pass,None
+TC006,Mode Accessible,"1.Change Mode to Accessible
+2.Type su for Start
+3.Select SU Restaurant
+4.Type main library building first floor in search location for End
+5.Select Main Library Building First Floor
+6.Click Generate Path!","1.Mode change to Accessible
+2.SU Restaurant pop up
+3.SU Restaurant selected
+4.Main Library Building First Floor pop up
+5.Main Library Building First Floor selected
+6.Path generated and pass Main Library Building Second Floor and take elevator",Pass,None
+TC007,Mode Indoor,"1.Change Mode to Indoor
+2.Type cym for Start
+3.Select Chong Yuet Ming Amenities Centre Third Floor
+4.Type main library building ground floor in search location for End
+5.Select Main Library Building Ground Floor
+6.Click Generate Path!","1.Mode change to Indoor
+2.Chong Yuet Ming Amenities Centre Third Floor pop up
+3.Chong Yuet Ming Amenities Centre Third Floor selected
+4.Main Library Building Ground Floor pop up
+5.Main Library Building Ground Floor selected
+6.Path generated and pass Main Library Building escalator instead of Knowles Building Exterior Stairs",Pass,None
+TC008,Search location by alias,"1.Type kklg for Start
+2.Select K.K. Leung Building Lower Ground Floor","1.K.K. Leung Building Lower Ground Floor pop up
+2.K.K. Leung Building Lower Ground Floor selected",Pass,None
+TC009,Search location by first character,"1.Type gh for Start
+2.Select Graduate House","1.Graduate House pop up
+2.Graduate House selected",Pass,None
+TC010,Search location by full name,"1.Type graduate house for Start
+2.Select Graduate House","1.Graduate House pop up
+2.Graduate House selected",Error: Nothing pop up,Fixed
+TC011,Display route one by one,"1.Type HKU MTR Station Exit C1 for Start
+2.Select HKU MTR Station Exit C1
+3.Type gh in search location for End
+4.Select Graduate House
+5.Click Generate Path!
+6.Click Next and Previous, then click Next until all routes are displayed and click finish
+7.Click Search Next","1.HKU MTR Station Exit C1 pop up
+2.HKU MTR Station Exit C1 selected
+3.Graduate House pop up
+4.Graduate House selected
+5.Path generated and pass Mountainside Road
+6.Display next path and previous node, then displays nodes and paths one by one until reach Graduate House
+7.Return to main menu",Pass,None
