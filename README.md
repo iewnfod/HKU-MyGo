@@ -154,6 +154,16 @@ http://localhost:4173
 5. `NavigatorService` calculates the best available route.
 6. The route steps, total distance, and estimated time are shown on the page.
 
+## Testing
+
+Refer to `HKU-MyGo Test Document.csv`
+
+## How to Access HKU MTR Station / Add Extra Nodes and Paths
+
+Acquire `additionalNodes.json` and `additionalPaths.json` from the folder `additionalData` or create your own `.json` files.
+
+Use the `Extend` function to upload the two `.json` files.
+
 ## Trivia
 
 Why "MyGo"?
