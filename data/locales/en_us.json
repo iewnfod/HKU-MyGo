@@ -16,6 +16,7 @@
     "app.activestepsdisplay.previous": "Previous",
     "app.activestepsdisplay.next": "Next",
     "app.activestepsdisplay.finish": "Finish",
+    "app.activestepsdisplay.search_next": "Search Next",
 
     "app.floatingsearchbar.peak_hour": "Peak Hours",
     "app.floatingsearchbar.mode": "Mode",

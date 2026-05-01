@@ -11,7 +11,7 @@ import I18nButton from "@/components/I18nButton.tsx";
 import PeakHourCheckBox from "./PeakHourCheckBox.tsx";
 import ModeButton from "@/components/ModeButton.tsx";
 
-export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, segments, activeStepIndex, onChangeStep, clearResults} : {
+export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, segments, activeStepIndex, onChangeStep, clearResults, routingMode} : {
 	onGeneratePath: (start: MapNode, end: MapNode, mode: RoutingMode) => void;
 	hasResult: boolean;
 	nodes: MapNode[];
@@ -19,11 +19,13 @@ export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, seg
 	activeStepIndex: number;
 	onChangeStep: (index: number) => void;
 	clearResults: () => void;
+	routingMode: RoutingMode;
 }) {
 	const [start, setStart] = useState<MapNode | null>(null);
 	const [end, setEnd] = useState<MapNode | null>(null);
 	const [selectedMode, setSelectedMode] = useState<RoutingMode>(RoutingMode.FastestNormal);
 	const [isPeakHours, setIsPeakHours] = useState<boolean>(false);
+	const [searchInputResetKey, setSearchInputResetKey] = useState<number>(0);
 	const isLargeScreen = window.innerWidth >= 1024;
 
 	const handleGeneratePath = useCallback(() => {
@@ -33,6 +35,13 @@ export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, seg
 	}, [start, end, selectedMode, isPeakHours, onGeneratePath]);
 
 	const handleClear = useCallback(() => {
+		clearResults();
+	}, [clearResults]);
+
+	const handleSearchNext = useCallback(() => {
+		setStart(null);
+		setEnd(null);
+		setSearchInputResetKey(old => old + 1);
 		clearResults();
 	}, [clearResults]);
 
@@ -67,8 +76,8 @@ export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, seg
 			{(!hasResult || isLargeScreen) && (
 				<Fragment>
 					<div className="flex flex-col gap-4 items-start justify-start w-full">
-						<SearchInput label={I18n.get("app.floatingsearchbar.start")} onSelect={setStart} />
-						<SearchInput label={I18n.get("app.floatingsearchbar.end")} onSelect={setEnd} />
+						<SearchInput label={I18n.get("app.floatingsearchbar.start")} onSelect={setStart} resetKey={searchInputResetKey} shouldFocusOnReset />
+						<SearchInput label={I18n.get("app.floatingsearchbar.end")} onSelect={setEnd} resetKey={searchInputResetKey} />
 					</div>
 					<Button className="w-full mt-2 min-h-10 mb-2" isDisabled={start === null || end === null || start === end} onClick={handleGeneratePath}>
 						{I18n.get("app.floatingsearchbar.generate_path")}
@@ -76,7 +85,7 @@ export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, seg
 				</Fragment>
 			)}
 			{nodes.length > 0 && segments.length > 0 && (
-				<ActiveStepsDisplay nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} onChangeStep={onChangeStep} />
+				<ActiveStepsDisplay nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} onChangeStep={onChangeStep} onSearchNext={handleSearchNext} routingMode={routingMode} />
 			)}
 		</Card>
 	);
