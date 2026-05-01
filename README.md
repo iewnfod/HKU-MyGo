@@ -153,3 +153,11 @@ http://localhost:4173
 4. The user chooses a start point, an end point, and a route mode.
 5. `NavigatorService` calculates the best available route.
 6. The route steps, total distance, and estimated time are shown on the page.
+
+## Trivia
+
+Why "MyGo"?
+
+A pun on the Japanese word "Maigo" (迷子) for "lost person," and the English phrase "My Go" for "my own path." Designed for those who are lost in HKU to find their unique way out.
+
+It is also a tribute to the anime/band BanG Dream! It's MyGO!!!!!, symbolizing "finding one's way even when lost" — which is exactly what this app does for students in the buildings in HKU!
