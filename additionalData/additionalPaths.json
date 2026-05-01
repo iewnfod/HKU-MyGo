@@ -1,0 +1,89 @@
+{
+  "paths": [
+    	  {
+      "uid": "070",
+      "fromNodeUid": "021",
+      "toNodeUid": "032",
+      "name": "Enter HKU MTR Station from HKU MTR Station Exit A2",
+      "type": "elevator",
+      "expectPassTime": 180,
+      "distance": 60,
+      "popularity": 63,
+      "penalty": 420,
+      "description": "Take the MTR lift up to HKU MTR Station Exit A2",
+      "isOpenAir": false,
+      "isAccessible": true
+    },
+    {
+      "uid": "071",
+      "fromNodeUid": "032",
+      "toNodeUid": "021",
+      "name": "Exit HKU MTR Station to HKU MTR Station Exit A2",
+      "type": "elevator",
+      "expectPassTime": 180,
+      "distance": 60,
+      "popularity": 63,
+      "penalty": 420,
+      "description": "Take the MTR lift down to HKU MTR Station",
+      "isOpenAir": false,
+      "isAccessible": true
+    },
+       {
+      "uid": "098",
+      "fromNodeUid": "029",
+      "toNodeUid": "032",
+      "name": "Enter HKU MTR Station from HKU MTR Station Exit C1",
+      "expectPassTime": 90,
+      "distance":40,
+      "type": "elevator",
+      "popularity": 60,
+      "penalty": 60,
+      "description": "HKU MTR Station Exit C1 to HKU MTR Station",
+      "isOpenAir": false,
+      "isAccessible": true
+    },
+    {
+      "uid": "099",
+      "fromNodeUid": "032",
+      "toNodeUid": "029",
+      "name": "Exit HKU MTR Station to HKU MTR Station Exit C1",
+      "expectPassTime": 90,
+      "distance":40,
+      "type": "elevator",
+      "popularity": 60,
+      "penalty": 60,
+      "description": "HKU MTR Station to HKU MTR Station Exit C1",
+      "isOpenAir": false,
+      "isAccessible": true
+    },
+    {
+      "uid": "100",
+      "fromNodeUid": "021",
+      "toNodeUid": "019",
+      "name": "Walk pass sky-bridge to Haking Wong Elevator Platform",
+      "expectPassTime": 20,
+      "distance":30,
+      "type": "road",
+      "popularity": 60,
+      "penalty": 0,
+      "description": "HKU MTR Station Exit A2 to Haking Wong Elevator Platform",
+      "isOpenAir": false,
+      "isAccessible": true
+    },
+    {
+      "uid": "101",
+      "fromNodeUid": "019",
+      "toNodeUid": "021",
+      "name": "Walk pass sky-bridge to HKU MTR Station Exit A2",
+      "expectPassTime": 20,
+      "distance":30,
+      "type": "road",
+      "popularity": 60,
+      "penalty": 0,
+      "description": "Haking Wong Elevator PlatformHKU MTR Station Exit A2",
+      "isOpenAir": false,
+      "isAccessible": true
+    }
+  ]
+}
+
