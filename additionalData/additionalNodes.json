@@ -1,0 +1,11 @@
+{
+  "nodes":[
+        {
+    "uid": "032",
+    "name": "HKU MTR Station",
+    "level": "LG",
+    "description": "Connecting the university to the MTR Island line, high-capacity lifts at Exits A and C.",
+    "aliases": ["MTR","Station","Metro"]
+    }
+  ]
+}

@@ -16,6 +16,7 @@
     "app.activestepsdisplay.previous": "上一步",
     "app.activestepsdisplay.next": "下一步",
     "app.activestepsdisplay.finish": "完成",
+    "app.activestepsdisplay.search_next": "搜索下一条",
 
     "app.floatingsearchbar.peak_hour": "高峰时段",
     "app.floatingsearchbar.mode": "模式",

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { FaMapPin } from "react-icons/fa6";
 import { TbElevator, TbEscalator, TbRoad, TbStairs } from "react-icons/tb";
 import { I18n } from "@/services/I18nService";
+import { RoutingMode } from "@/services/NavigatorService";
 
 export default function RouteStepList({
 	totalTime,
@@ -10,12 +11,14 @@ export default function RouteStepList({
 	nodes,
 	segments,
 	activeStepIndex,
+	routingMode,
 } : {
 	totalTime: number;
 	totalDistance: number;
 	nodes: MapNode[];
 	segments: MapPath[];
 	activeStepIndex: number;
+	routingMode: RoutingMode;
 }) {
 	const scrollViewRef = useRef<HTMLDivElement | null>(null);
 	const containerRef = useRef<HTMLDivElement | null>(null);
@@ -66,6 +69,11 @@ export default function RouteStepList({
 		if (segment.type === "elevator") return <TbElevator className="w-4 h-4 text-blue-600"/>;
 		if (segment.type === "escalator") return <TbEscalator className="w-4 h-4 text-blue-600"/>;
 		return <TbRoad className="w-4 h-4 text-blue-600"/>;
+	}
+
+	const getPathTime = (segment: MapPath) => {
+		if (routingMode === RoutingMode.FastestBusy) return segment.expectPassTime + (segment.penalty || 0);
+		return segment.expectPassTime;
 	}
 
 	const timelineItems: Array<
@@ -121,7 +129,7 @@ export default function RouteStepList({
 							return (
 								<div
 									className="relative z-10 flex flex-row gap-3 rounded-2xl px-2 pt-1 pb-0"
-									key={item.type === "node" ? item.node.uid : item.segment.uid}
+									key={item.type === "node" ? `node-${item.node.uid}` : `segment-${item.segment.uid}`}
 									ref={element => {
 										itemRefs.current[index] = element;
 									}}
@@ -161,7 +169,7 @@ export default function RouteStepList({
 													)}
 												</div>
 												<div className="flex flex-col items-end shrink-0">
-													<p className="text-sm font-semibold text-gray-950">{formatTime(item.segment.expectPassTime)}</p>
+													<p className="text-sm font-semibold text-gray-950">{formatTime(getPathTime(item.segment))}</p>
 													<p className="text-xs text-gray-400">{item.segment.distance}m</p>
 												</div>
 											</div>

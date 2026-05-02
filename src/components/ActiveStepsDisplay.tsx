@@ -1,24 +1,31 @@
 import type { MapNode, MapPath } from "@/types/map.ts";
 import { useEffect, useState } from "react";
 import { FaMapPin } from "react-icons/fa6";
+import { IoCheckmarkDoneCircleOutline } from "react-icons/io5";
 import { TbElevator, TbEscalator, TbRoad, TbStairs } from "react-icons/tb";
 import { I18n } from "@/services/I18nService";
+import { RoutingMode } from "@/services/NavigatorService";
 
 export default function ActiveStepsDisplay({
 	nodes,
 	segments,
 	activeStepIndex,
 	onChangeStep,
+	onSearchNext,
+	routingMode,
 } : {
 	nodes: MapNode[];
 	segments: MapPath[];
 	activeStepIndex: number;
 	onChangeStep: (index: number) => void;
+	onSearchNext: () => void;
+	routingMode: RoutingMode;
 }) {
 	const [displayStepIndex, setDisplayStepIndex] = useState<number>(activeStepIndex);
 	const [isChanging, setIsChanging] = useState<boolean>(false);
 	const [isVisible, setIsVisible] = useState<boolean>(false);
 	const [direction, setDirection] = useState<number>(1);
+	const [shouldShowFinalPage, setShouldShowFinalPage] = useState<boolean>(false);
 	const totalSteps = nodes.length + segments.length;
 	const isLastStep = activeStepIndex === totalSteps - 1;
 	const isNodeStep = displayStepIndex % 2 === 0;
@@ -63,17 +70,42 @@ export default function ActiveStepsDisplay({
 		return <TbRoad className="w-5 h-5 text-blue-600"/>;
 	}
 
+	const getPathTime = (segment: MapPath) => {
+		if (routingMode === RoutingMode.FastestBusy) return segment.expectPassTime + (segment.penalty || 0);
+		return segment.expectPassTime;
+	}
+
 	const handlePrevious = () => {
 		if (activeStepIndex === 0) return;
 		onChangeStep(activeStepIndex - 1);
 	}
 
 	const handleNext = () => {
-		if (isLastStep) return;
+		if (isLastStep) {
+			setShouldShowFinalPage(true);
+			return;
+		}
 		onChangeStep(activeStepIndex + 1);
 	}
 
 	if (totalSteps === 0) return null;
+
+	if (shouldShowFinalPage) {
+		return (
+			<div className={`w-full overflow-hidden rounded-2xl border border-gray-200 bg-white/95 shadow-sm transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${isVisible ? 'max-h-128 opacity-100 translate-y-0' : 'max-h-0 opacity-0 translate-y-2'}`}>
+				<div className="flex min-h-60 flex-col justify-center items-center gap-5 p-5">
+					<IoCheckmarkDoneCircleOutline className="w-20 h-20 text-blue-600"/>
+					<button
+						type="button"
+						className="rounded-full bg-blue-600 px-5 py-2 text-sm font-medium text-white shadow-sm shadow-blue-200 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-blue-700 active:scale-95 cursor-pointer"
+						onClick={onSearchNext}
+					>
+						{I18n.get("app.activestepsdisplay.search_next")}
+					</button>
+				</div>
+			</div>
+		);
+	}
 
 	const contentAnimation = isChanging ?
 		(direction === 1 ? 'opacity-0 -translate-x-4 scale-[0.98]' : 'opacity-0 translate-x-4 scale-[0.98]') :
@@ -106,7 +138,7 @@ export default function ActiveStepsDisplay({
 							</p>
 							{!isNodeStep && currentSegment && (
 								<div className="flex flex-row items-center gap-3 text-sm text-gray-500">
-									<p>{formatTime(currentSegment.expectPassTime)}</p>
+									<p>{formatTime(getPathTime(currentSegment))}</p>
 									<div className="w-1 h-1 rounded-full bg-gray-300"/>
 									<p>{currentSegment.distance}m</p>
 								</div>

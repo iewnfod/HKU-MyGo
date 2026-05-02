@@ -17,9 +17,10 @@ function App() {
 	const [totalDistance, setTotalDistance] = useState<number>(0);
 	const [activeStepIndex, setActiveStepIndex] = useState<number>(0);
 	const [hasError, setHasError] = useState<boolean>(false);
+	const [routingMode, setRoutingMode] = useState<RoutingMode>(RoutingMode.FastestNormal);
 	const hasResult = useMemo(() => segments.length > 0, [segments]);
 	const hasPanel = useMemo(() => hasResult || hasError, [hasResult, hasError]);
-	
+
 	useI18n();
 	useEffect(() => {
 		MapData.reload(sanitizeMapData(nodeJson.nodes, pathJson.paths));
@@ -33,6 +34,7 @@ function App() {
 		setTotalDistance(0);
 		setActiveStepIndex(0);
 		setHasError(false);
+		setRoutingMode(RoutingMode.FastestNormal);
 	}
 
 	const handleGeneratePath = (start: MapNode, end: MapNode, mode: RoutingMode) => {
@@ -52,6 +54,7 @@ function App() {
 		setTotalTime(routeResult.totalTime);
 		setTotalDistance(routeResult.totalDistance);
 		setActiveStepIndex(0);
+		setRoutingMode(mode);
 	}
 
 	return (
@@ -64,10 +67,11 @@ function App() {
 				activeStepIndex={activeStepIndex}
 				onChangeStep={setActiveStepIndex}
 				clearResults={handleClearResults}
+				routingMode={routingMode}
 			/>
 			<div className={`w-full grow lg:max-w-[55vw] p-4 pt-0 h-auto max-h-full lg:max-h-screen overflow-hidden ${hasPanel ? 'h-full' : ''}`}>
 				{hasResult && (
-					<RouteStepList totalTime={totalTime} totalDistance={totalDistance} nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} />
+					<RouteStepList totalTime={totalTime} totalDistance={totalDistance} nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} routingMode={routingMode} />
 				)}
 				{hasError && (
 					<RouteErrorPanel />

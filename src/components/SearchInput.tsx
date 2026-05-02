@@ -1,6 +1,6 @@
 import { Button, Card, InputGroup, Label, Separator, TextField } from "@heroui/react";
 import { SearchIcon, XIcon } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { ChangeEvent } from "react";
 import type { MapNode } from "@/types/map.ts";
 import { searchLocation } from "@/services/NodeSearchingService";
@@ -10,16 +10,44 @@ export default function SearchInput({
 	placeholder,
 	label,
 	onSelect,
+	resetKey,
+	shouldFocusOnReset,
 } : {
 	placeholder?: string;
 	label: string;
 	onSelect?: (node: MapNode | null) => void;
+	resetKey?: number;
+	shouldFocusOnReset?: boolean;
 }) {
 	const resolvedPlaceholder = placeholder ?? I18n.get("app.searchinput.placeholder");
+	const inputRef = useRef<HTMLInputElement | null>(null);
 	const [options, setOptions] = useState<MapNode[]>([]);
 	const shouldShowOptions = useMemo(() => options.length > 0, [options]);
 	const [selectedOption, setSelectedOption] = useState<MapNode | null>(null);
 	const [text, setText] = useState<string>("");
+	const [shouldFocusInput, setShouldFocusInput] = useState<boolean>(false);
+
+	useEffect(() => {
+		if (!shouldFocusInput || selectedOption) return;
+		const timer = requestAnimationFrame(() => {
+			inputRef.current?.focus();
+			setShouldFocusInput(false);
+		});
+		return () => cancelAnimationFrame(timer);
+	}, [shouldFocusInput, selectedOption]);
+
+	useEffect(() => {
+		if (!resetKey) return;
+		const timer = requestAnimationFrame(() => {
+			setSelectedOption(null);
+			setText("");
+			setOptions([]);
+			if (shouldFocusOnReset) {
+				setShouldFocusInput(true);
+			}
+		});
+		return () => cancelAnimationFrame(timer);
+	}, [resetKey, shouldFocusOnReset]);
 
 	const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setText(event.target.value);
@@ -37,6 +65,9 @@ export default function SearchInput({
 
 	const clearSelectOption = () => {
 		setSelectedOption(null);
+		setText("");
+		setOptions([]);
+		setShouldFocusInput(true);
 		onSelect?.(null);
 	}
 
@@ -72,6 +103,7 @@ export default function SearchInput({
 					)}
 					<InputGroup className="w-full">
 						<InputGroup.Input
+							ref={inputRef}
 							onChange={handleSearchChange}
 							className="w-full grow"
 							placeholder={resolvedPlaceholder}
@@ -89,7 +121,7 @@ export default function SearchInput({
 					`}>
 					<Separator className="mt-4 mb-2"/>
 
-					<div className="flex flex-col gap-2 w-full p-2 overflow-y-auto h-96">
+					<div className="flex flex-col gap-2 w-full p-2 overflow-y-auto max-h-96">
 						{
 							options.map((option, index) => (
 								<Card
