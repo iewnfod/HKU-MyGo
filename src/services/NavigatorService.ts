@@ -2,8 +2,7 @@ import type { MapNode, MapPath } from "../types/map.ts"
 import { MapData } from "./MapDataService.ts";
 
 export const RoutingMode = {
-    FastestNormal: "FastestNormal",  // fastest time during normal hours
-    FastestBusy: "FastestBusy",      // fastest time during busy hours
+    Fastest: "Fastest",              // fastest time
     MostPopular: "MostPopular",      // least cognitive effort
     Accessible: "Accessible",
     IndoorOnly: "IndoorOnly"
@@ -35,31 +34,29 @@ export class Navigator {
         });
     }
 
-    private static calculateWeight(path: MapPath, mode: RoutingMode): number {
+    private static calculateWeight(path: MapPath, mode: RoutingMode, isBusy: boolean): number {
+        const defaultValue = path.expectPassTime + (isBusy ? (path.penalty || 0) : 0);
         switch (mode) {
-            case RoutingMode.FastestNormal:
-                return path.expectPassTime;
-            
-            case RoutingMode.FastestBusy:
-                return path.expectPassTime + (path.penalty || 0);
+            case RoutingMode.Fastest:
+                return defaultValue;
 
             case RoutingMode.MostPopular:
                 return 1 / ((path.popularity || 0) + 1);
 
             case RoutingMode.Accessible:
                 if (path.isAccessible === false) return Infinity;
-                return path.expectPassTime;
+                return defaultValue;
 
             case RoutingMode.IndoorOnly:
                 if (path.isOpenAir === true) return Infinity;
-                return path.expectPassTime;
+                return defaultValue;
 
             default:
-                return path.expectPassTime;
+                return defaultValue;
         }
     }
 
-    public static findAvailablePath(startUid: string, endUid: string, mode: RoutingMode): RouteResult | null {
+    public static findAvailablePath(startUid: string, endUid: string, mode: RoutingMode, isBusy: boolean): RouteResult | null {
         const distances = new Map<string, number>();
         const parentPath = new Map<string, { nodeUid: string, path: MapPath }>();
         const inQueue = new Set<string>();
@@ -78,7 +75,7 @@ export class Navigator {
             const neighbors = this.adjacencyList.get(u) || [];
             for (const path of neighbors) {
                 const v = path.toNodeUid;
-                const weight = this.calculateWeight(path, mode);
+                const weight = this.calculateWeight(path, mode, isBusy);
 
                 if (weight === Infinity) continue;
 
@@ -108,7 +105,7 @@ export class Navigator {
             pathNodes.unshift(node);
             pathEdges.unshift(edge.path);
             totalDist += edge.path.distance;
-            totalTime += (mode === RoutingMode.FastestBusy ? 
+            totalTime += (isBusy ? 
                           edge.path.expectPassTime + (edge.path.penalty || 0) : 
                           edge.path.expectPassTime);
             curr = edge.nodeUid;

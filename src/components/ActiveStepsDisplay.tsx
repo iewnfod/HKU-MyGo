@@ -13,6 +13,7 @@ export default function ActiveStepsDisplay({
 	onChangeStep,
 	onSearchNext,
 	routingMode,
+	isBusy,
 } : {
 	nodes: MapNode[];
 	segments: MapPath[];
@@ -20,6 +21,7 @@ export default function ActiveStepsDisplay({
 	onChangeStep: (index: number) => void;
 	onSearchNext: () => void;
 	routingMode: RoutingMode;
+	isBusy: boolean;
 }) {
 	const [displayStepIndex, setDisplayStepIndex] = useState<number>(activeStepIndex);
 	const [isChanging, setIsChanging] = useState<boolean>(false);
@@ -71,7 +73,7 @@ export default function ActiveStepsDisplay({
 	}
 
 	const getPathTime = (segment: MapPath) => {
-		if (routingMode === RoutingMode.FastestBusy) return segment.expectPassTime + (segment.penalty || 0);
+		if (isBusy) return segment.expectPassTime + (segment.penalty || 0);
 		return segment.expectPassTime;
 	}
 

@@ -17,7 +17,8 @@ function App() {
 	const [totalDistance, setTotalDistance] = useState<number>(0);
 	const [activeStepIndex, setActiveStepIndex] = useState<number>(0);
 	const [hasError, setHasError] = useState<boolean>(false);
-	const [routingMode, setRoutingMode] = useState<RoutingMode>(RoutingMode.FastestNormal);
+	const [routingMode, setRoutingMode] = useState<RoutingMode>(RoutingMode.Fastest);
+	const [isBusy, setIsBusy] = useState<boolean>(false);
 	const hasResult = useMemo(() => segments.length > 0, [segments]);
 	const hasPanel = useMemo(() => hasResult || hasError, [hasResult, hasError]);
 
@@ -34,12 +35,13 @@ function App() {
 		setTotalDistance(0);
 		setActiveStepIndex(0);
 		setHasError(false);
-		setRoutingMode(RoutingMode.FastestNormal);
+		setRoutingMode(RoutingMode.Fastest);
+		setIsBusy(false);
 	}
 
-	const handleGeneratePath = (start: MapNode, end: MapNode, mode: RoutingMode) => {
+	const handleGeneratePath = (start: MapNode, end: MapNode, mode: RoutingMode, isBusy: boolean) => {
 		handleClearResults();
-		const routeResult = Navigator.findAvailablePath(start.uid, end.uid, mode);
+		const routeResult = Navigator.findAvailablePath(start.uid, end.uid, mode, isBusy);
 		if (!routeResult) {
 			setHasError(true);
 			return;
@@ -55,6 +57,7 @@ function App() {
 		setTotalDistance(routeResult.totalDistance);
 		setActiveStepIndex(0);
 		setRoutingMode(mode);
+		setIsBusy(isBusy);
 	}
 
 	return (
@@ -68,10 +71,11 @@ function App() {
 				onChangeStep={setActiveStepIndex}
 				clearResults={handleClearResults}
 				routingMode={routingMode}
+				isBusy={isBusy}
 			/>
 			<div className={`w-full grow lg:max-w-[55vw] p-4 pt-0 h-auto max-h-full lg:max-h-screen overflow-hidden ${hasPanel ? 'h-full' : ''}`}>
 				{hasResult && (
-					<RouteStepList totalTime={totalTime} totalDistance={totalDistance} nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} routingMode={routingMode} />
+					<RouteStepList totalTime={totalTime} totalDistance={totalDistance} nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} routingMode={routingMode} isBusy={isBusy} />
 				)}
 				{hasError && (
 					<RouteErrorPanel />

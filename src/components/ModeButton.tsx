@@ -9,7 +9,7 @@ export default function ModeButton({
 } : {
 	onModeChange: (mode: RoutingMode) => void;
 }) {
-	const [selectedMode, _setSelectedMode] = useState<RoutingMode>(RoutingMode.FastestNormal);
+	const [selectedMode, _setSelectedMode] = useState<RoutingMode>(RoutingMode.Fastest);
 	const [shouldShowModeOptions, setShouldShowModeOptions] = useState<boolean>(false);
 
 	const setSelectedMode = useCallback((mode: RoutingMode) => {
@@ -20,7 +20,7 @@ export default function ModeButton({
 	const modeOptions = [
 		{
 			label: I18n.get("app.floatingsearchbar.mode.fastest"),
-			mode: RoutingMode.FastestNormal,
+			mode: RoutingMode.Fastest,
 			icon: <ZapIcon className="w-4 h-4 text-blue-600"/>,
 		},
 		{

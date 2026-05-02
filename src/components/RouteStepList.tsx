@@ -12,6 +12,7 @@ export default function RouteStepList({
 	segments,
 	activeStepIndex,
 	routingMode,
+	isBusy,
 } : {
 	totalTime: number;
 	totalDistance: number;
@@ -19,6 +20,7 @@ export default function RouteStepList({
 	segments: MapPath[];
 	activeStepIndex: number;
 	routingMode: RoutingMode;
+	isBusy: boolean;
 }) {
 	const scrollViewRef = useRef<HTMLDivElement | null>(null);
 	const containerRef = useRef<HTMLDivElement | null>(null);
@@ -72,7 +74,7 @@ export default function RouteStepList({
 	}
 
 	const getPathTime = (segment: MapPath) => {
-		if (routingMode === RoutingMode.FastestBusy) return segment.expectPassTime + (segment.penalty || 0);
+		if (isBusy) return segment.expectPassTime + (segment.penalty || 0);
 		return segment.expectPassTime;
 	}
 

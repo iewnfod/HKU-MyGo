@@ -11,8 +11,8 @@ import I18nButton from "@/components/I18nButton.tsx";
 import PeakHourCheckBox from "./PeakHourCheckBox.tsx";
 import ModeButton from "@/components/ModeButton.tsx";
 
-export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, segments, activeStepIndex, onChangeStep, clearResults, routingMode} : {
-	onGeneratePath: (start: MapNode, end: MapNode, mode: RoutingMode) => void;
+export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, segments, activeStepIndex, onChangeStep, clearResults, routingMode, isBusy} : {
+	onGeneratePath: (start: MapNode, end: MapNode, mode: RoutingMode, isBusy: boolean) => void;
 	hasResult: boolean;
 	nodes: MapNode[];
 	segments: MapPath[];
@@ -20,18 +20,18 @@ export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, seg
 	onChangeStep: (index: number) => void;
 	clearResults: () => void;
 	routingMode: RoutingMode;
+	isBusy: boolean;
 }) {
 	const [start, setStart] = useState<MapNode | null>(null);
 	const [end, setEnd] = useState<MapNode | null>(null);
-	const [selectedMode, setSelectedMode] = useState<RoutingMode>(RoutingMode.FastestNormal);
+	const [selectedMode, setSelectedMode] = useState<RoutingMode>(RoutingMode.Fastest);
 	const [isPeakHours, setIsPeakHours] = useState<boolean>(false);
 	const [searchInputResetKey, setSearchInputResetKey] = useState<number>(0);
 	const isLargeScreen = window.innerWidth >= 1024;
 
 	const handleGeneratePath = useCallback(() => {
 		if (start === null || end === null) return;
-		const mode = selectedMode === RoutingMode.FastestNormal && isPeakHours ? RoutingMode.FastestBusy : selectedMode;
-		onGeneratePath(start, end, mode);
+		onGeneratePath(start, end, selectedMode, isPeakHours);
 	}, [start, end, selectedMode, isPeakHours, onGeneratePath]);
 
 	const handleClear = useCallback(() => {
@@ -85,7 +85,7 @@ export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, seg
 				</Fragment>
 			)}
 			{nodes.length > 0 && segments.length > 0 && (
-				<ActiveStepsDisplay nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} onChangeStep={onChangeStep} onSearchNext={handleSearchNext} routingMode={routingMode} />
+				<ActiveStepsDisplay nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} onChangeStep={onChangeStep} onSearchNext={handleSearchNext} routingMode={routingMode} isBusy={isBusy} />
 			)}
 		</Card>
 	);
