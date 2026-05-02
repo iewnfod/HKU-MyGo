@@ -17,7 +17,6 @@ function App() {
 	const [totalDistance, setTotalDistance] = useState<number>(0);
 	const [activeStepIndex, setActiveStepIndex] = useState<number>(0);
 	const [hasError, setHasError] = useState<boolean>(false);
-	const [routingMode, setRoutingMode] = useState<RoutingMode>(RoutingMode.Fastest);
 	const [isBusy, setIsBusy] = useState<boolean>(false);
 	const hasResult = useMemo(() => segments.length > 0, [segments]);
 	const hasPanel = useMemo(() => hasResult || hasError, [hasResult, hasError]);
@@ -35,7 +34,6 @@ function App() {
 		setTotalDistance(0);
 		setActiveStepIndex(0);
 		setHasError(false);
-		setRoutingMode(RoutingMode.Fastest);
 		setIsBusy(false);
 	}
 
@@ -56,7 +54,6 @@ function App() {
 		setTotalTime(routeResult.totalTime);
 		setTotalDistance(routeResult.totalDistance);
 		setActiveStepIndex(0);
-		setRoutingMode(mode);
 		setIsBusy(isBusy);
 	}
 
@@ -70,12 +67,11 @@ function App() {
 				activeStepIndex={activeStepIndex}
 				onChangeStep={setActiveStepIndex}
 				clearResults={handleClearResults}
-				routingMode={routingMode}
 				isBusy={isBusy}
 			/>
 			<div className={`w-full grow lg:max-w-[55vw] p-4 pt-0 h-auto max-h-full lg:max-h-screen overflow-hidden ${hasPanel ? 'h-full' : ''}`}>
 				{hasResult && (
-					<RouteStepList totalTime={totalTime} totalDistance={totalDistance} nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} routingMode={routingMode} isBusy={isBusy} />
+					<RouteStepList totalTime={totalTime} totalDistance={totalDistance} nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} isBusy={isBusy} />
 				)}
 				{hasError && (
 					<RouteErrorPanel />

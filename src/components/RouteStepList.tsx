@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import { FaMapPin } from "react-icons/fa6";
 import { TbElevator, TbEscalator, TbRoad, TbStairs } from "react-icons/tb";
 import { I18n } from "@/services/I18nService";
-import { RoutingMode } from "@/services/NavigatorService";
 
 export default function RouteStepList({
 	totalTime,
@@ -11,7 +10,6 @@ export default function RouteStepList({
 	nodes,
 	segments,
 	activeStepIndex,
-	routingMode,
 	isBusy,
 } : {
 	totalTime: number;
@@ -19,7 +17,6 @@ export default function RouteStepList({
 	nodes: MapNode[];
 	segments: MapPath[];
 	activeStepIndex: number;
-	routingMode: RoutingMode;
 	isBusy: boolean;
 }) {
 	const scrollViewRef = useRef<HTMLDivElement | null>(null);

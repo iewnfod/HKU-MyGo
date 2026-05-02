@@ -11,7 +11,7 @@ import I18nButton from "@/components/I18nButton.tsx";
 import PeakHourCheckBox from "./PeakHourCheckBox.tsx";
 import ModeButton from "@/components/ModeButton.tsx";
 
-export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, segments, activeStepIndex, onChangeStep, clearResults, routingMode, isBusy} : {
+export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, segments, activeStepIndex, onChangeStep, clearResults, isBusy} : {
 	onGeneratePath: (start: MapNode, end: MapNode, mode: RoutingMode, isBusy: boolean) => void;
 	hasResult: boolean;
 	nodes: MapNode[];
@@ -19,7 +19,6 @@ export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, seg
 	activeStepIndex: number;
 	onChangeStep: (index: number) => void;
 	clearResults: () => void;
-	routingMode: RoutingMode;
 	isBusy: boolean;
 }) {
 	const [start, setStart] = useState<MapNode | null>(null);
@@ -85,7 +84,7 @@ export default function FloatingSearchBar({onGeneratePath, hasResult, nodes, seg
 				</Fragment>
 			)}
 			{nodes.length > 0 && segments.length > 0 && (
-				<ActiveStepsDisplay nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} onChangeStep={onChangeStep} onSearchNext={handleSearchNext} routingMode={routingMode} isBusy={isBusy} />
+				<ActiveStepsDisplay nodes={nodes} segments={segments} activeStepIndex={activeStepIndex} onChangeStep={onChangeStep} onSearchNext={handleSearchNext} isBusy={isBusy} />
 			)}
 		</Card>
 	);

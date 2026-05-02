@@ -4,7 +4,6 @@ import { FaMapPin } from "react-icons/fa6";
 import { IoCheckmarkDoneCircleOutline } from "react-icons/io5";
 import { TbElevator, TbEscalator, TbRoad, TbStairs } from "react-icons/tb";
 import { I18n } from "@/services/I18nService";
-import { RoutingMode } from "@/services/NavigatorService";
 
 export default function ActiveStepsDisplay({
 	nodes,
@@ -12,7 +11,6 @@ export default function ActiveStepsDisplay({
 	activeStepIndex,
 	onChangeStep,
 	onSearchNext,
-	routingMode,
 	isBusy,
 } : {
 	nodes: MapNode[];
@@ -20,7 +18,6 @@ export default function ActiveStepsDisplay({
 	activeStepIndex: number;
 	onChangeStep: (index: number) => void;
 	onSearchNext: () => void;
-	routingMode: RoutingMode;
 	isBusy: boolean;
 }) {
 	const [displayStepIndex, setDisplayStepIndex] = useState<number>(activeStepIndex);
